@@ -1,0 +1,1951 @@
+#% Rest Connector Descriptor 1.0
+
+apiSpec:
+  url: api.json
+
+connectorName: Gmail Connector - Mule 4
+baseJavaPackage: com.mulesoft.connectors
+connectorDescription: 'The Gmail API lets you view and manage Gmail mailbox data like threads, messages, and labels.'
+
+extensionXml: gmail
+connectorCategory: select
+connectorGav:
+  groupId: com.mulesoft.connectors
+  artifactId: mule4-gmail-connector
+  version: 1.0.0-SNAPSHOT
+  
+baseUri:
+  value: 'https://www.googleapis.com'
+  type: parameter
+
+endpoints:
+ /gmail/v1/users/{userId}/drafts:
+   operations:
+     get:
+       displayName: "List Drafts"
+       expects:
+         queryParameter:
+           q:
+             displayName: "Query"
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+     post:
+       displayName: "Create Draft"
+       expects:
+         queryParameter:
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+ /gmail/v1/users/{userId}/drafts/send:
+   operations:
+     post:
+       displayName: "Send Draft"
+       expects:
+         queryParameter:
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+ /gmail/v1/users/{userId}/drafts/{id}:
+   operations:
+     delete:
+       displayName: "Delete Draft"
+       expects:
+         uriParameter:
+           id:
+             displayName: "Draft Id"
+         queryParameter:
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+     get:
+       displayName: "Get Draft"
+       expects:
+         uriParameter:
+           id:
+             displayName: "Draft Id"
+         queryParameter:
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+     put:
+       displayName: "Update Draft"
+       expects:
+         uriParameter:
+           id:
+             displayName: "Draft Id"
+         queryParameter:
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+ /gmail/v1/users/{userId}/history:
+   operations:
+     get:
+       displayName: "List History"
+       expects:
+         queryParameter:
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+ /gmail/v1/users/{userId}/labels:
+   operations:
+     get:
+       displayName: "List Labels"
+       expects:
+         queryParameter:
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+     post:
+       displayName: "Create Label"
+       expects:
+         queryParameter:
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+ /gmail/v1/users/{userId}/labels/{id}:
+   operations:
+     delete:
+       displayName: "Delete Label"
+       expects:
+         uriParameter:
+           id:
+             displayName: "Label Id"
+         queryParameter:
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+     get:
+       displayName: "Get Label"
+       expects:
+         uriParameter:
+           id:
+             displayName: "Label Id"
+         queryParameter:
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+     patch:
+       displayName: "Patch Label"
+       expects:
+         uriParameter:
+           id:
+             displayName: "Label Id"
+         queryParameter:
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+     put:
+       displayName: "Update Label"
+       expects:
+         uriParameter:
+           id:
+             displayName: "Label Id"
+         queryParameter:
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+ /gmail/v1/users/{userId}/messages:
+   operations:
+     get:
+       displayName: "List Messages"
+       expects:
+         queryParameter:
+           q:
+             displayName: "Query"
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+     post:
+       displayName: "Insert Message"
+       expects:
+         queryParameter:
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+ /gmail/v1/users/{userId}/messages/batchDelete:
+   operations:
+     post:
+       displayName: "Batch Delete Messages"
+       expects:
+         queryParameter:
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+       voidOperation: true # If successful, the response body is empty.
+ /gmail/v1/users/{userId}/messages/batchModify:
+   operations:
+     post:
+       displayName: "Batch Modify Messages"
+       expects:
+         queryParameter:
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+       voidOperation: true # If successful, the response body is empty.
+ /gmail/v1/users/{userId}/messages/import:
+   operations:
+     post:
+       displayName: "Import Message"
+       expects:
+         queryParameter:
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+ /gmail/v1/users/{userId}/messages/send:
+   operations:
+     post:
+       displayName: "Send Message"
+       expects:
+         queryParameter:
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+ /gmail/v1/users/{userId}/messages/{id}:
+   operations:
+     delete:
+       displayName: "Delete Message"
+       expects:
+         uriParameter:
+           id:
+             displayName: "Message Id"
+         queryParameter:
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+     get:
+       displayName: "Get Message"
+       expects:
+         uriParameter:
+           id:
+             displayName: "Message Id"
+         queryParameter:
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+ /gmail/v1/users/{userId}/messages/{id}/modify:
+   operations:
+     post:
+       displayName: "Modify Message Labels"
+       expects:
+         uriParameter:
+           id:
+             displayName: "Message Id"
+         queryParameter:
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+ /gmail/v1/users/{userId}/messages/{id}/trash:
+   operations:
+     post:
+       displayName: "Trash Message"
+       expects:
+         uriParameter:
+           id:
+             displayName: "Message Id"
+         queryParameter:
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+ /gmail/v1/users/{userId}/messages/{id}/untrash:
+   operations:
+     post:
+       displayName: "Untrash Message"
+       expects:
+         uriParameter:
+           id:
+             displayName: "Message Id"
+         queryParameter:
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+ /gmail/v1/users/{userId}/messages/{messageId}/attachments/{id}:
+   operations:
+     get:
+       displayName: "Get Message Attachment"
+       expects:
+         uriParameter:
+           id:
+             displayName: "Attachment Id"
+         queryParameter:
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+ /gmail/v1/users/{userId}/profile:
+   operations:
+     get:
+       displayName: "Get Profile"
+       expects:
+         queryParameter:
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+ /gmail/v1/users/{userId}/settings/autoForwarding:
+   operations:
+     get:
+       displayName: "Get Settings - Auto Forwarding"
+       expects:
+         queryParameter:
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+     put:
+       displayName: "Update Settings - Auto Forwarding"
+       expects:
+         queryParameter:
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+ /gmail/v1/users/{userId}/settings/delegates:
+   operations:
+     get:
+       displayName: "List Account Delegates"
+       expects:
+         queryParameter:
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+     post:
+       displayName: "Add Account Delegate"
+       expects:
+         queryParameter:
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+ /gmail/v1/users/{userId}/settings/delegates/{delegateEmail}:
+   operations:
+     delete:
+       displayName: "Remove Account Delegate"
+       expects:
+         queryParameter:
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+     get:
+       displayName: "Get Account Delegate"
+       expects:
+         queryParameter:
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+ /gmail/v1/users/{userId}/settings/filters:
+   operations:
+     get:
+       displayName: "List Message Filters"
+       expects:
+         queryParameter:
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+     post:
+       displayName: "Create Message Filter"
+       expects:
+         queryParameter:
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+ /gmail/v1/users/{userId}/settings/filters/{id}:
+   operations:
+     delete:
+       displayName: "Delete Message Filter"
+       expects:
+         uriParameter:
+           id:
+             displayName: "Filter Id"
+         queryParameter:
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+     get:
+       displayName: "Get Message Filter"
+       expects:
+         uriParameter:
+           id:
+             displayName: "Filter Id"
+         queryParameter:
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+ /gmail/v1/users/{userId}/settings/forwardingAddresses:
+   operations:
+     get:
+       displayName: "List Forwarding Addresses"
+       expects:
+         queryParameter:
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+     post:
+       displayName: "Create New Fowarding Address"
+       expects:
+         queryParameter:
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+ /gmail/v1/users/{userId}/settings/forwardingAddresses/{forwardingEmail}:
+   operations:
+     delete:
+       displayName: "Delete Forwarding Address"
+       expects:
+         queryParameter:
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+     get:
+       displayName: "Get Forwarding Address"
+       expects:
+         queryParameter:
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+ /gmail/v1/users/{userId}/settings/imap:
+   operations:
+     get:
+       displayName: "Get Settings - IMAP"
+       expects:
+         queryParameter:
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+     put:
+       displayName: "Update Settings - IMAP"
+       expects:
+         queryParameter:
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+ /gmail/v1/users/{userId}/settings/language:
+   operations:
+     get:
+       displayName: "Get Settings - Language"
+       expects:
+         queryParameter:
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+     put:
+       displayName: "Update Settings - Language"
+       expects:
+         queryParameter:
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+ /gmail/v1/users/{userId}/settings/pop:
+   operations:
+     get:
+       displayName: "Get Settings - POP"
+       expects:
+         queryParameter:
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+     put:
+       displayName: "Update Settings - POP"
+       expects:
+         queryParameter:
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+ /gmail/v1/users/{userId}/settings/sendAs:
+   operations:
+     get:
+       displayName: "List SendAs Aliases"
+       expects:
+         queryParameter:
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+     post:
+       displayName: "Create SendAs Alias"
+       expects:
+         queryParameter:
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+ /gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}:
+   operations:
+     delete:
+       displayName: "Delete SendAs Alias"
+       expects:
+         queryParameter:
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+     get:
+       displayName: "Get SendAs Alias"
+       expects:
+         queryParameter:
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+     patch:
+       displayName: "Patch SendAs Alias"
+       expects:
+         queryParameter:
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+     put:
+       displayName: "Update SendAs Alias"
+       expects:
+         queryParameter:
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+ /gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}/smimeInfo:
+   operations:
+     get:
+       displayName: "List SendAs Alias S/MIME Configs"
+       expects:
+         queryParameter:
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+     post:
+       displayName: "Create SendAs Alias S/MIME Config"
+       expects:
+         queryParameter:
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+ /gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}/smimeInfo/{id}:
+   operations:
+     delete:
+       displayName: "Delete SendAs Alias S/MIME Config"
+       expects:
+         uriParameter:
+           id:
+             displayName: "S/MIME Info Id"
+         queryParameter:
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+     get:
+       displayName: "Get SendAs Alias S/MIME Config"
+       expects:
+         uriParameter:
+           id:
+             displayName: "S/MIME Info Id"
+         queryParameter:
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+ /gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}/smimeInfo/{id}/setDefault:
+   operations:
+     post:
+       displayName: "Set Default Send As"
+       expects:
+         uriParameter:
+           id:
+             displayName: "S/MIME Info Id"
+         queryParameter:
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+       voidOperation: true # If successful, the response body is empty.
+ /gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}/verify:
+   operations:
+     post:
+       displayName: "Verify SendAs"
+       expects:
+         queryParameter:
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+       voidOperation: true # If successful, the response body is empty.
+ /gmail/v1/users/{userId}/settings/vacation:
+   operations:
+     get:
+       displayName: "Get Settings - Vacation"
+       expects:
+         queryParameter:
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+     put:
+       displayName: "Update Settings - Vacation"
+       expects:
+         queryParameter:
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+ /gmail/v1/users/{userId}/stop:
+   operations:
+     post:
+       displayName: "Stop Push Notifications"
+       expects:
+         queryParameter:
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+       voidOperation: true # If successful, the response body is empty.
+ /gmail/v1/users/{userId}/threads:
+   operations:
+     get:
+       displayName: "List Threads"
+       expects:
+         queryParameter:
+           q:
+             displayName: "Query"
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+ /gmail/v1/users/{userId}/threads/{id}:
+   operations:
+     delete:
+       displayName: "Delete Thread"
+       expects:
+         uriParameter:
+           id:
+             displayName: "Thread Id"
+         queryParameter:
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+     get:
+       displayName: "Get Thread"
+       expects:
+         uriParameter:
+           id:
+             displayName: "Thread Id"
+         queryParameter:
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+ /gmail/v1/users/{userId}/threads/{id}/modify:
+   operations:
+     post:
+       displayName: "Modify Thread Labels"
+       expects:
+         uriParameter:
+           id:
+             displayName: "Thread Id"
+         queryParameter:
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+ /gmail/v1/users/{userId}/threads/{id}/trash:
+   operations:
+     post:
+       displayName: "Trash Thread"
+       expects:
+         uriParameter:
+           id:
+             displayName: "Thread Id"
+         queryParameter:
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+ /gmail/v1/users/{userId}/threads/{id}/untrash:
+   operations:
+     post:
+       displayName: "Untrash Thread"
+       expects:
+         uriParameter:
+           id:
+             displayName: "Thread Id"
+         queryParameter:
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true
+ /gmail/v1/users/{userId}/watch:
+   operations:
+     post:
+       displayName: "Setup Push Notifications"
+       expects:
+         queryParameter:
+           $.xgafv:
+             ignored: true
+           access_token:
+             ignored: true
+           alt:
+             ignored: true
+           callback:
+             ignored: true
+           fields:
+             ignored: true
+           key:
+             ignored: true
+           oauth_token:
+             ignored: true
+           prettyPrint:
+             ignored: true
+           quotaUser:
+             ignored: true
+           upload_protocol:
+             ignored: true
+           uploadType:
+             ignored: true

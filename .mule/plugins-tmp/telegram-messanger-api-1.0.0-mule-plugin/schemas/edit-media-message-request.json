@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$ref": "#/definitions/editMediaMessageRequest",
+  "definitions": {"editMediaMessageRequest": {
+    "additionalProperties": true,
+    "type": "object",
+    "required": ["media"],
+    "properties": {
+      "message_id": {"type": "integer"},
+      "media": {
+        "additionalProperties": true,
+        "type": "object"
+      },
+      "chat_id": {"anyOf": [
+        {"type": "integer"},
+        {"type": "string"}
+      ]}
+    }
+  }}
+}

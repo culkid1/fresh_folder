@@ -1,0 +1,99 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$ref": "#/definitions/ListDraftsResponse",
+  "definitions": {
+    "Draft": {
+      "additionalProperties": true,
+      "type": "object",
+      "properties": {
+        "id": {"type": "string"},
+        "message": {"$ref": "#/definitions/Message"}
+      }
+    },
+    "MessagePartHeader": {
+      "additionalProperties": true,
+      "type": "object",
+      "properties": {
+        "name": {"type": "string"},
+        "value": {"type": "string"}
+      }
+    },
+    "ListDraftsResponse": {
+      "additionalProperties": true,
+      "type": "object",
+      "properties": {
+        "nextPageToken": {"type": "string"},
+        "drafts": {
+          "type": "array",
+          "items": {"$ref": "#/definitions/Draft"}
+        },
+        "resultSizeEstimate": {"type": "integer"}
+      }
+    },
+    "Message": {
+      "additionalProperties": true,
+      "type": "object",
+      "properties": {
+        "snippet": {"type": "string"},
+        "threadId": {"type": "string"},
+        "labelIds": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "payload": {"$ref": "#/definitions/MessagePart"},
+        "historyId": {
+          "format": "uint64",
+          "type": "string"
+        },
+        "raw": {
+          "format": "byte",
+          "type": "string"
+        },
+        "id": {"type": "string"},
+        "sizeEstimate": {
+          "maximum": 2147483647,
+          "type": "integer",
+          "minimum": -2147483648
+        },
+        "internalDate": {
+          "format": "int64",
+          "type": "string"
+        }
+      }
+    },
+    "MessagePart": {
+      "additionalProperties": true,
+      "type": "object",
+      "properties": {
+        "headers": {
+          "type": "array",
+          "items": {"$ref": "#/definitions/MessagePartHeader"}
+        },
+        "filename": {"type": "string"},
+        "partId": {"type": "string"},
+        "parts": {
+          "type": "array",
+          "items": {"$ref": "#/definitions/MessagePart"}
+        },
+        "mimeType": {"type": "string"},
+        "body": {"$ref": "#/definitions/MessagePartBody"}
+      }
+    },
+    "MessagePartBody": {
+      "additionalProperties": true,
+      "type": "object",
+      "properties": {
+        "data": {
+          "format": "byte",
+          "type": "string"
+        },
+        "size": {
+          "maximum": 2147483647,
+          "type": "integer",
+          "minimum": -2147483648
+        },
+        "attachmentId": {"type": "string"}
+      }
+    }
+  }
+}

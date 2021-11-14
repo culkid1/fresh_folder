@@ -1,0 +1,29 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$ref": "#/definitions/ListForwardingAddressesResponse",
+  "definitions": {
+    "ForwardingAddress": {
+      "additionalProperties": true,
+      "type": "object",
+      "properties": {
+        "verificationStatus": {
+          "type": "string",
+          "enum": [
+            "verificationStatusUnspecified",
+            "accepted",
+            "pending"
+          ]
+        },
+        "forwardingEmail": {"type": "string"}
+      }
+    },
+    "ListForwardingAddressesResponse": {
+      "additionalProperties": true,
+      "type": "object",
+      "properties": {"forwardingAddresses": {
+        "type": "array",
+        "items": {"$ref": "#/definitions/ForwardingAddress"}
+      }}
+    }
+  }
+}

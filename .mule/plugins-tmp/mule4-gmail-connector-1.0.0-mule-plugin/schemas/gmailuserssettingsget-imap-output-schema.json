@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$ref": "#/definitions/ImapSettings",
+  "definitions": {"ImapSettings": {
+    "additionalProperties": true,
+    "type": "object",
+    "properties": {
+      "maxFolderSize": {
+        "maximum": 2147483647,
+        "type": "integer",
+        "minimum": -2147483648
+      },
+      "expungeBehavior": {
+        "type": "string",
+        "enum": [
+          "expungeBehaviorUnspecified",
+          "archive",
+          "trash",
+          "deleteForever"
+        ]
+      },
+      "autoExpunge": {"type": "boolean"},
+      "enabled": {"type": "boolean"}
+    }
+  }}
+}

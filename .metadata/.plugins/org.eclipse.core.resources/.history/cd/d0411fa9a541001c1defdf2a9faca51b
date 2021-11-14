@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:os="http://www.mulesoft.org/schema/mule/os" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns:telegram="http://www.mulesoft.org/schema/mule/telegram" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/telegram http://www.mulesoft.org/schema/mule/telegram/current/mule-telegram.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/os http://www.mulesoft.org/schema/mule/os/current/mule-os.xsd">
+	<telegram:config name="Telegram_Connector_Config" doc:name="Telegram Connector Config" doc:id="a0414152-d10e-4fb2-8da6-326d27291856" >
+		<telegram:connection-provider-connection secureToken="2142801345:AAGAZObV2T1Ncu6q2Xnyph444DyDPPfRWoE"/>
+	</telegram:config>
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="d1536cbc-84e8-4873-8798-6ad09ca5a53f" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<os:object-store name="Object_store" doc:name="Object store" doc:id="dfe343bf-eaa7-4767-a92a-6a0f7e756157" />
+	<flow name="animation" doc:id="5a834890-252b-438f-9262-02299dc12cd4" >
+		<http:listener doc:name="Listener" doc:id="991d958d-3cfc-4e5b-98de-211172dc0f57" config-ref="HTTP_Listener_config" path="/animation"/>
+		<os:retrieve doc:name="Retrieve" doc:id="cbe4f13e-6d60-4a5c-8c22-1afe21e5ead2" key="chat_id" target="myvar"/>
+		<ee:transform doc:name="Transform Message" doc:id="3c63093b-6d11-4fb3-802e-b27144309324" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+{
+	animation: payload.animation,
+	chat_id: vars.myvar[0],
+	caption: payload.caption
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<telegram:send-animation doc:name="Send animation message" doc:id="f5db1d85-391f-4629-a72d-8cedea875172" config-ref="Telegram_Connector_Config"/>
+	</flow>
+	<flow name="delete" doc:id="ffb5654a-bc7e-4a53-ad19-0531075d5fd7" >
+		<http:listener doc:name="Listener" doc:id="f71d6383-ce9a-4bcf-ad96-360707fd5e9a" config-ref="HTTP_Listener_config" path="/delete"/>
+		<os:retrieve doc:name="Retrieve" doc:id="171fc27d-fa00-4871-9516-4db5a41ad72d" key="chat_id" objectStore="Object_store" target="myvar"/>
+		<ee:transform doc:name="Transform Message" doc:id="3da3618c-a3b5-4445-aa9d-920f49a20ca5" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+{
+	message_id: payload.msg_id as Number,
+	chat_id: vars.myvar[0]
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<logger level="INFO" doc:name="Logger" doc:id="e7cce189-b6d5-4252-9597-adf2498a7b8d" message="#[payload]"/>
+		<telegram:delete-message doc:name="Delete message" doc:id="f97b492d-5003-48bf-bc6d-7d9e78fe5637" config-ref="Telegram_Connector_Config"/>
+	</flow>
+	<flow name="video" doc:id="593e6d27-bfd1-4457-a1b9-e6da57782907" >
+		<http:listener doc:name="Listener" doc:id="3259b455-4c6a-4090-8125-a7d00c669062" config-ref="HTTP_Listener_config" path="/video"/>
+		<os:retrieve doc:name="Retrieve" doc:id="360af530-c364-4304-8a6f-cffb92499edd" key="chat_id" objectStore="Object_store" target="myvar"/>
+		<ee:transform doc:name="Transform Message" doc:id="d16639e1-9238-472c-853a-3e9bed74a3b4" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+{
+	video: payload.video,
+	chat_id: vars.myvar[0]
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<telegram:send-video doc:name="Send video message" doc:id="c0d77d64-cfdd-4ad9-9968-afe885d132a2" config-ref="Telegram_Connector_Config"/>
+	</flow>
+	<flow name="audio" doc:id="548ec2e9-7d8d-4ed3-bbae-f6469f66e8e5" >
+		<http:listener doc:name="Listener" doc:id="90628a82-e689-4a46-991d-8eb0be14747a" config-ref="HTTP_Listener_config" path="/audio"/>
+		<os:retrieve doc:name="Retrieve" doc:id="d784c84c-0a93-4a12-b101-5287ec2983a5" key="chat_id" target="osChatId"/>
+		<ee:transform doc:name="Transform Message" doc:id="4dd13c5a-96d6-4eef-ba18-beaf5c9f81d7" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+{
+	audio: payload.audio,
+	chat_id:  vars.osChatId[0]
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<telegram:send-audio doc:name="Send audio message" doc:id="93b20603-cf3c-453c-8b8e-13c90dfe68fd" config-ref="Telegram_Connector_Config"/>
+	</flow>
+	<flow name="send_photo" doc:id="7404d2c0-526b-46fa-976e-8ff484ad2e64" >
+		<http:listener doc:name="Listener" doc:id="00f3ec4d-038e-4f6a-adfd-e83ebc444bab" config-ref="HTTP_Listener_config" path="/send_photo"/>
+		<os:retrieve doc:name="Retrieve" doc:id="f43f53e7-59db-485a-8182-58c1b238de53" key="chat_id" target="osChatId" objectStore="Object_store"/>
+		<ee:transform doc:name="Transform Message" doc:id="146eaa6e-64b5-4f4a-a26e-e976b8563c09" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+{
+	photo: payload.photo as String,
+	chat_id: vars.osChatId[0]
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<logger level="INFO" doc:name="Logger" doc:id="3df0f6cd-a88f-4a14-805e-798fc49c341f" message="#[payload]"/>
+		<telegram:send-photo doc:name="Send photo message" doc:id="0fd6ace1-bad1-4392-b5dc-60152b68167d" config-ref="Telegram_Connector_Config"/>
+	</flow>
+	<flow name="editmessage" doc:id="3a95b01e-06d0-4be7-9719-57512f1af2fc" >
+		<http:listener doc:name="Listener" doc:id="0865075c-cf04-4ee7-a578-9e05ae92e50f" config-ref="HTTP_Listener_config" path="/editmessage"/>
+		<os:retrieve doc:name="Retrieve" doc:id="6732f464-d8ff-45e6-a831-7489c4fc96b2" key="chat_id" objectStore="Object_store" target="osChatId"/>
+		<ee:transform doc:name="Transform Message" doc:id="0354c128-68e3-4cc7-a79e-c920708064ab" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+{
+	message_id: payload.msg_id as Number,
+	text: payload.text,
+	chat_id: vars.osChatId[0]
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<logger level="INFO" doc:name="Logger" doc:id="9bea58f4-e670-4a04-8053-509d8ecbb475" message="#[payload]"/>
+		<telegram:edit-message-text doc:name="Edit text message" doc:id="ecf68cfb-4daf-40a1-9745-9218ab6a0053" config-ref="Telegram_Connector_Config"/>
+	</flow>
+	<flow name="sendmessage" doc:id="fbdccfe3-312c-46fb-81bb-2ca376e5517a" >
+		<http:listener doc:name="Listener" doc:id="fe484bf8-26af-45bf-9fab-779625879d00" config-ref="HTTP_Listener_config" path="/send_text"/>
+		<os:retrieve doc:name="Retrieve" doc:id="449dc4ac-1d35-4e45-862f-228d929fe9dc" key="chat_id" objectStore="Object_store" target="osChatId"/>
+		<logger level="INFO" doc:name="Logger" doc:id="afb89656-5cc2-4c48-91b9-6c17afb64e42" message="#[vars.osChatId]"/>
+		<ee:transform doc:name="Transform Message" doc:id="71e86d5f-a388-4613-bf57-ffc4a83b7fdf" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+{
+	text: payload.text,
+	chat_id: vars.osChatId[0]
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<logger level="INFO" doc:name="Logger" doc:id="b9aa558c-808d-47fe-9a97-643cfaf7ab5d" message="#[payload]"/>
+		<telegram:send-message doc:name="Send text message" doc:id="61359f08-e3ce-4819-ad22-0fd181ab5c94" config-ref="Telegram_Connector_Config"/>
+	</flow>
+	<flow name="getupdates" doc:id="aeb1bad1-8fa2-4ead-88a2-4f7c04e251d5" >
+		<http:listener doc:name="Listener" doc:id="51be71f6-43df-487b-9eed-6f3a1b275c26" config-ref="HTTP_Listener_config" path="/tel"/>
+		<telegram:get-updates doc:name="Get Updates" doc:id="927026b2-8c78-4657-bca7-67615da50769" config-ref="Telegram_Connector_Config"/>
+		<ee:transform doc:name="Transform Message" doc:id="d377ddc7-199f-4b87-8691-7bfe3b941f86" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+{
+    "message_id": payload.result.message.message_id,
+    "chat_id": payload.result.message.chat.id
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<set-variable value="#[payload.chat_id]" doc:name="chat_id" doc:id="73915c18-b15a-49f7-812e-59d2dca216e9" variableName="chat_id"/>
+		<os:store doc:name="Store" doc:id="53b23590-645a-43cd-9fc7-3a65f4a5f9a8" key="chat_id">
+			<os:value ><![CDATA[#[vars.chat_id]]]></os:value>
+		</os:store>
+		<logger level="INFO" doc:name="Logger" doc:id="e2730f6b-a9b7-4934-b504-1b830a4e97bf" message="#[payload]"/>
+	</flow>
+</mule>

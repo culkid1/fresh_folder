@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<PurchaseOrder PurchaseOrderNumber="99503" OrderDate="1999-10-20">
+	<Address Type="Shipping">
+		<Name>John Adams</Name>
+		<Street>Clinton Street</Street>
+		<City>New Jersey</City>
+		<State>California</State>
+		<Zip>46846</Zip>
+		<Country>United States</Country>
+	</Address>
+	<Address Type="Billing">
+		<Name>Mike Tyson</Name>
+		<Street>8 Oak Avenue</Street>
+		<City>Old Town</City>
+		<State>Dallas</State>
+		<Zip>31873</Zip>
+		<Country>United States</Country>
+	</Address>
+	<DeliveryNotes>Please leave the packages at the doorstep.</DeliveryNotes>
+	<Items>
+		<Item PartNumber="872-AA">
+			<ProductName>Lawnmover</ProductName>
+			<Quantity>1</Quantity>
+			<USPrice>148.95</USPrice>
+			<Comment>This is electric</Comment>
+		</Item>
+		<Item PartNumber="926-AA">
+			<ProductName>Baby Monitor</ProductName>
+			<Quantity>2</Quantity>
+			<USPrice>38.24</USPrice>
+			<ShipDate>1995-05-21</ShipDate>
+		</Item>
+	</Items>
+</PurchaseOrder>

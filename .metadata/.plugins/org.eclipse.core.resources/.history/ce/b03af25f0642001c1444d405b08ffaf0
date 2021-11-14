@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="846dec24-bbc7-40db-97c3-2f0ccd475ae8" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<configuration-properties doc:name="Configuration properties" doc:id="86cd1734-7fca-4b3a-9f56-1e82f722241d" file="youtube.yaml" />
+	<http:request-config name="HTTP_Request_configuration" doc:name="HTTP Request configuration" doc:id="db147e3e-1d3e-431f-a65b-23a8f0342a56" >
+		<http:request-connection protocol="HTTPS" host="www.googleapis.com/youtube/v3"/>
+	</http:request-config>
+	<flow name="youtubeFlow" doc:id="f262bdc3-2e99-4760-ab9e-27be1bee4555" >
+		<http:listener doc:name="Listener" doc:id="c7d293d5-17f9-4579-a798-c31363b06021" config-ref="HTTP_Listener_config" path="/youtube_search"/>
+		<logger level="INFO" doc:name="Logger" doc:id="55e1b146-0cda-488d-8d62-f28a44bd18d5" message="${youtube.key}"/>
+		<http:request method="GET" doc:name="Request" doc:id="5f5b9e8e-4dd3-40df-9f9d-d2d44b6b47c1" config-ref="HTTP_Request_configuration" path="/search">
+			<http:query-params ><![CDATA[#[output application/java
+---
+{
+	"q" : attributes.queryParams.query,
+	"part": attributes.queryParams.part,
+	"key" : p('youtube.key')
+}]]]></http:query-params>
+		</http:request>
+		<logger level="INFO" doc:name="Logger" doc:id="e4ebb48f-5df4-4786-bdab-5cf3d0c24a14" message="#[payload]"/>
+	</flow>
+</mule>

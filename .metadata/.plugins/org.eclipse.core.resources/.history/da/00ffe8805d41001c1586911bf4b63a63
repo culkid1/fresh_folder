@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:salesforce="http://www.mulesoft.org/schema/mule/salesforce" xmlns:s3="http://www.mulesoft.org/schema/mule/s3"
+	xmlns:file="http://www.mulesoft.org/schema/mule/file"
+	xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:db="http://www.mulesoft.org/schema/mule/db" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/file/current/mule-file.xsd
+http://www.mulesoft.org/schema/mule/s3 http://www.mulesoft.org/schema/mule/s3/current/mule-s3.xsd
+http://www.mulesoft.org/schema/mule/salesforce http://www.mulesoft.org/schema/mule/salesforce/current/mule-salesforce.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="fe8c297e-7106-4458-afbe-a234a58e8fa0" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<db:config name="Database_Config" doc:name="Database Config" doc:id="76d093a1-8adb-4e5b-a105-91a7e981f8cd" >
+		<db:my-sql-connection host="localhost" port="3306" user="root" password="jaanu" database="employee" />
+	</db:config>
+	<file:config name="File_Config" doc:name="File Config" doc:id="e0abff41-2950-4a9a-8e8b-63e29f5ae178" />
+	<s3:config name="Amazon_S3_Configuration" doc:name="Amazon S3 Configuration" doc:id="49ae08c7-5d5c-46f6-9c93-7a6cebdf0a84" >
+		<s3:basic-connection accessKey="AKIARCLNHYD453NWV7ZS" secretKey="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" region="AP_SOUTH_1" />
+	</s3:config>
+	<salesforce:sfdc-config name="Salesforce_Config" doc:name="Salesforce Config" doc:id="fec358b5-0e74-460f-b269-8d7018cabe27" >
+		<salesforce:basic-connection username="prashanth@mulesoft.com" password="warangal123@" securityToken="EF6AbhUZLCcgTSHouauPMJdBP" />
+	</salesforce:sfdc-config>
+	<flow name="salesforce" doc:id="3ef413ef-c8c1-4db3-8eb3-0bb33bc94652" initialState="stopped">
+		<ee:transform doc:name="Transform Message" doc:id="ae648165-23c6-448e-b0c7-98176840e574">
+					<ee:message>
+						<ee:set-payload><![CDATA[%dw 2.0
+output application/json
+---
+payload map ( payload01 , indexOfPayload01 ) -> {
+	Id: payload01.Id as Number,
+	LastName: payload01.Name,
+	FirstName: payload01.Status
+}]]></ee:set-payload>
+					</ee:message>
+				</ee:transform>
+		<salesforce:create type="Contact" doc:name="Create" doc:id="618054c7-a8a4-4aaf-91ab-7c8eecc2dd6e" config-ref="Salesforce_Config" />
+		<logger level="INFO" doc:name="Logger" doc:id="f5a58ab7-88fd-48b7-9c9d-48c8e522cb49" message='"sf success"' />
+		<set-payload value='#["salesforce successful"]' doc:name="Set Payload" doc:id="41f228de-20bf-4e67-b36f-cdf5da74c251" />
+	</flow>
+	<flow name="database" doc:id="98859f35-474b-4079-bafa-0324802703c3" initialState="stopped">
+		<db:insert doc:name="Insert" doc:id="24807381-549d-41c7-9f80-96e3d6c4c28d" config-ref="Database_Config">
+					<db:sql><![CDATA[insert into employee.emp_details(Id,Name,Status) values(:Id,:Name,:Status);]]></db:sql>
+					<db:input-parameters><![CDATA[#[payload]]]></db:input-parameters>
+				</db:insert>
+		<logger level="INFO" doc:name="Logger" doc:id="163e4cd3-55a6-4dc1-90a8-de3d58e2d549" message='"db success"' />
+		<set-payload value='#["records inserted successfully"]' doc:name="Set Payload" doc:id="b1689eba-670d-4a05-bd39-1c6a1389e42a" />
+	</flow>
+	<flow name="aws" doc:id="d00445e0-d593-4665-bd73-a13c559b6712" initialState="stopped">
+		<file:write doc:name="Write" doc:id="14a22cee-c1ae-47f0-8c64-46e5d761cb24" config-ref="File_Config" path="C:\Users\ADMIN\Desktop\output_from_db.json.json" />
+		<s3:create-object doc:name="Create object" doc:id="c977ffd8-57cd-451d-b46a-db5db4ef694e" config-ref="Amazon_S3_Configuration" bucketName="prashanth14" key="2.json" />
+		<logger level="INFO" doc:name="Logger" doc:id="8e3011e2-dd52-4ab7-9fba-eb5a6b60a1a2" message='#["aws success"]' />
+		<set-payload value='#["success"]' doc:name="Set Payload" doc:id="a9919ab6-d8ce-4cb7-a4e1-3582a961cac6" />
+	</flow>
+	<flow name="multiple_integrationsFlow" doc:id="c4f3d05f-d004-4aac-a3c9-7a64d1cfa738" >
+		<http:listener doc:name="Listener" doc:id="6454fee7-c0ed-4604-8b75-0390f9078713" config-ref="HTTP_Listener_config" path="/integration"/>
+		<ee:transform doc:name="Transform Message" doc:id="89e2d98b-ba19-4264-9bad-b080a2424af0" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload map ( payload01 , indexOfPayload01 ) -> {
+	emp_id: payload01.emp_id,
+	emp_name: payload01.emp_name,
+	emp_status: payload01.emp_status
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<db:insert doc:name="Insert" doc:id="edd60651-d719-4358-bf8b-04f872f32b96" config-ref="Database_Config">
+			<db:sql ><![CDATA[insert into emp_details(Id,Name,Status) values(:Id,:Name,:Status);]]></db:sql>
+			<db:input-parameters ><![CDATA[#[{
+	Id: payload.emp_id,
+	Name: payload.emp_name,
+	Status: payload.emp_status
+}]]]></db:input-parameters>
+		</db:insert>
+	</flow>
+</mule>

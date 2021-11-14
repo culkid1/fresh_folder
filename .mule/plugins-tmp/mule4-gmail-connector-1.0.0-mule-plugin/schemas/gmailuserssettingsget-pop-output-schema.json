@@ -1,0 +1,29 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$ref": "#/definitions/PopSettings",
+  "definitions": {"PopSettings": {
+    "additionalProperties": true,
+    "type": "object",
+    "properties": {
+      "disposition": {
+        "type": "string",
+        "enum": [
+          "dispositionUnspecified",
+          "leaveInInbox",
+          "archive",
+          "trash",
+          "markRead"
+        ]
+      },
+      "accessWindow": {
+        "type": "string",
+        "enum": [
+          "accessWindowUnspecified",
+          "disabled",
+          "fromNowOn",
+          "allMail"
+        ]
+      }
+    }
+  }}
+}

@@ -1,0 +1,33 @@
+{
+  "extensionModelLoaderDescriptor": {
+    "id": "java",
+    "attributes": {
+      "type": "com.mulesoft.connectors.telegramconnectormule4.internal.extension.TelegramConnectorMule4Connector",
+      "version": "1.0.0"
+    }
+  },
+  "license": {
+    "allowsEvaluation": true
+  },
+  "name": "Telegram Connector",
+  "requiredProduct": "MULE_EE",
+  "classLoaderModelLoaderDescriptor": {
+    "id": "mule",
+    "attributes": {
+      "privilegedExportedPackages": [],
+      "privilegedArtifactIds": [],
+      "exportedPackages": [
+        "com.mulesoft.connectivity.telegram.rest.commons.api.request",
+        "com.mulesoft.connectivity.telegram.rest.commons.api.configuration",
+        "com.mulesoft.connectivity.telegram.rest.commons.api.proxy",
+        "com.mulesoft.connectivity.telegram.rest.commons.api.operation"
+      ],
+      "exportedResources": []
+    }
+  },
+  "bundleDescriptorLoader": {
+    "id": "mule",
+    "attributes": {}
+  },
+  "minMuleVersion": "4.2.0"
+}

@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$ref": "#/definitions/deleteMessageResponse",
+  "definitions": {"deleteMessageResponse": {
+    "additionalProperties": true,
+    "type": "object",
+    "required": [
+      "ok",
+      "result"
+    ],
+    "properties": {
+      "result": {"type": "boolean"},
+      "ok": {"type": "boolean"}
+    }
+  }}
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$ref": "#/definitions/sendTextMessageRequest",
+  "definitions": {"sendTextMessageRequest": {
+    "additionalProperties": true,
+    "type": "object",
+    "required": [
+      "chat_id",
+      "text"
+    ],
+    "properties": {
+      "disable_notification": {"type": "boolean"},
+      "parse_mode": {
+        "type": "string",
+        "enum": [
+          "HTML",
+          "Markdown",
+          "MarkdownV2"
+        ]
+      },
+      "text": {"type": "string"},
+      "reply_to_message_id": {"type": "integer"},
+      "chat_id": {"anyOf": [
+        {"type": "integer"},
+        {"type": "string"}
+      ]}
+    }
+  }}
+}

@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$ref": "#/definitions/SmimeInfo",
+  "definitions": {"SmimeInfo": {
+    "additionalProperties": true,
+    "type": "object",
+    "properties": {
+      "issuerCn": {"type": "string"},
+      "isDefault": {"type": "boolean"},
+      "pem": {"type": "string"},
+      "expiration": {
+        "format": "int64",
+        "type": "string"
+      },
+      "id": {"type": "string"},
+      "encryptedKeyPassword": {"type": "string"},
+      "pkcs12": {
+        "format": "byte",
+        "type": "string"
+      }
+    }
+  }}
+}

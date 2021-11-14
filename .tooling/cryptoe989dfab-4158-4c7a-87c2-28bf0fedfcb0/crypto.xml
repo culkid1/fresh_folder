@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:crypto="http://www.mulesoft.org/schema/mule/crypto"
+	xmlns:servicenow="http://www.mulesoft.org/schema/mule/servicenow"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/servicenow http://www.mulesoft.org/schema/mule/servicenow/current/mule-servicenow.xsd
+http://www.mulesoft.org/schema/mule/crypto http://www.mulesoft.org/schema/mule/crypto/current/mule-crypto.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="4c9c8f85-f321-4567-aafa-6456cefa4832" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="cryptoFlow1" doc:id="9eb47ab8-70f2-4412-8901-3aa893433738" >
+		<http:listener doc:name="Listener" doc:id="52c583e9-9a5a-4797-a3c6-10e5506b2582" />
+		<crypto:jce-encrypt-pbe doc:name="Jce encrypt pbe" doc:id="5f41b610-c429-45c8-a07b-b881b1feccba" password="mulesoft"/>
+	</flow>
+</mule>

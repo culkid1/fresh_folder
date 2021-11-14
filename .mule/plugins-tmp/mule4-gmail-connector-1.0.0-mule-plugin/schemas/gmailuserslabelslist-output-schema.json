@@ -1,0 +1,73 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$ref": "#/definitions/ListLabelsResponse",
+  "definitions": {
+    "Label": {
+      "additionalProperties": true,
+      "type": "object",
+      "properties": {
+        "messageListVisibility": {
+          "type": "string",
+          "enum": [
+            "show",
+            "hide"
+          ]
+        },
+        "messagesUnread": {
+          "maximum": 2147483647,
+          "type": "integer",
+          "minimum": -2147483648
+        },
+        "threadsUnread": {
+          "maximum": 2147483647,
+          "type": "integer",
+          "minimum": -2147483648
+        },
+        "color": {"$ref": "#/definitions/LabelColor"},
+        "threadsTotal": {
+          "maximum": 2147483647,
+          "type": "integer",
+          "minimum": -2147483648
+        },
+        "name": {"type": "string"},
+        "id": {"type": "string"},
+        "labelListVisibility": {
+          "type": "string",
+          "enum": [
+            "labelShow",
+            "labelShowIfUnread",
+            "labelHide"
+          ]
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "system",
+            "user"
+          ]
+        },
+        "messagesTotal": {
+          "maximum": 2147483647,
+          "type": "integer",
+          "minimum": -2147483648
+        }
+      }
+    },
+    "ListLabelsResponse": {
+      "additionalProperties": true,
+      "type": "object",
+      "properties": {"labels": {
+        "type": "array",
+        "items": {"$ref": "#/definitions/Label"}
+      }}
+    },
+    "LabelColor": {
+      "additionalProperties": true,
+      "type": "object",
+      "properties": {
+        "backgroundColor": {"type": "string"},
+        "textColor": {"type": "string"}
+      }
+    }
+  }
+}

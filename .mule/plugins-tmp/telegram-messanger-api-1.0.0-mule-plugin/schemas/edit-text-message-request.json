@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$ref": "#/definitions/editTextMessageRequest",
+  "definitions": {"editTextMessageRequest": {
+    "additionalProperties": true,
+    "type": "object",
+    "required": [
+      "chat_id",
+      "message_id",
+      "text"
+    ],
+    "properties": {
+      "entities": {
+        "type": "array",
+        "items": {
+          "additionalProperties": true,
+          "type": "object"
+        }
+      },
+      "parse_mode": {"type": "string"},
+      "disable_web_page_preview": {"type": "boolean"},
+      "message_id": {"type": "integer"},
+      "text": {"type": "string"},
+      "chat_id": {"anyOf": [
+        {"type": "integer"},
+        {"type": "string"}
+      ]}
+    }
+  }}
+}

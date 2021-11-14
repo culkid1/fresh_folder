@@ -1,0 +1,471 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$ref": "#/definitions/sendMediaGroupMessageResponse",
+  "definitions": {
+    "items_1": {
+      "additionalProperties": true,
+      "type": "object",
+      "required": [
+        "file_id",
+        "file_unique_id",
+        "width",
+        "height"
+      ],
+      "properties": {
+        "file_unique_id": {"type": "string"},
+        "file_id": {"type": "string"},
+        "width": {"type": "integer"},
+        "file_size": {"type": "integer"},
+        "height": {"type": "integer"}
+      }
+    },
+    "sendMediaGroupMessageResponse": {
+      "additionalProperties": true,
+      "type": "object",
+      "required": [
+        "ok",
+        "result"
+      ],
+      "properties": {
+        "result": {
+          "type": "array",
+          "items": {"$ref": "#/definitions/items"}
+        },
+        "ok": {"type": "boolean"}
+      }
+    },
+    "items": {
+      "additionalProperties": true,
+      "type": "object",
+      "required": [
+        "message_id",
+        "date"
+      ],
+      "properties": {
+        "date": {"type": "integer"},
+        "voice": {
+          "additionalProperties": true,
+          "type": "object",
+          "required": [
+            "duration",
+            "file_unique_id",
+            "ile_id"
+          ],
+          "properties": {
+            "duration": {"type": "integer"},
+            "file_unique_id": {"type": "string"},
+            "mime_type": {"type": "string"},
+            "ile_id": {"type": "string"},
+            "file_size": {"type": "integer"}
+          }
+        },
+        "delete_chat_photo": {"type": "boolean"},
+        "forward_from_chat": {
+          "additionalProperties": true,
+          "type": "object",
+          "required": [
+            "id",
+            "type"
+          ],
+          "properties": {
+            "can_set_sticker_set": {"type": "boolean"},
+            "slow_mode_delay": {"type": "integer"},
+            "last_name": {"type": "string"},
+            "photo": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "bio": {"type": "string"},
+            "description": {"type": "string"},
+            "type": {"type": "string"},
+            "title": {"type": "string"},
+            "invite_link": {"type": "string"},
+            "sticker_set_name": {"type": "string"},
+            "pinned_message": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "linked_chat_id": {"type": "integer"},
+            "permissions": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "location": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "id": {"type": "integer"},
+            "first_name": {"type": "string"},
+            "username": {"type": "string"}
+          }
+        },
+        "dice": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "caption": {"type": "string"},
+        "poll": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "group_chat_created": {"type": "boolean"},
+        "contact": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "from": {
+          "additionalProperties": true,
+          "type": "object",
+          "required": ["first_name"],
+          "properties": {
+            "language_code": {"type": "string"},
+            "supports_inline_queries": {"type": "boolean"},
+            "last_name": {"type": "string"},
+            "first_name": {"type": "string"},
+            "can_join_groups": {"type": "boolean"},
+            "can_read_all_group_messages": {"type": "boolean"},
+            "username": {"type": "string"}
+          }
+        },
+        "text": {"type": "string"},
+        "left_chat_member": {
+          "additionalProperties": true,
+          "type": "object",
+          "required": ["first_name"],
+          "properties": {
+            "language_code": {"type": "string"},
+            "supports_inline_queries": {"type": "boolean"},
+            "last_name": {"type": "string"},
+            "first_name": {"type": "string"},
+            "can_join_groups": {"type": "boolean"},
+            "can_read_all_group_messages": {"type": "boolean"},
+            "username": {"type": "string"}
+          }
+        },
+        "reply_to_message": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "forward_sender_name": {"type": "string"},
+        "supergroup_chat_created": {"type": "boolean"},
+        "connected_website": {"type": "string"},
+        "migrate_to_chat_id": {"type": "integer"},
+        "forward_signature": {"type": "string"},
+        "animation": {
+          "additionalProperties": true,
+          "type": "object",
+          "required": [
+            "file_id",
+            "duration",
+            "file_unique_id",
+            "width",
+            "height"
+          ],
+          "properties": {
+            "duration": {"type": "integer"},
+            "file_unique_id": {"type": "string"},
+            "thumb": {
+              "additionalProperties": true,
+              "type": "object",
+              "required": [
+                "file_id",
+                "file_unique_id",
+                "width",
+                "height"
+              ],
+              "properties": {
+                "file_unique_id": {"type": "string"},
+                "file_id": {"type": "string"},
+                "width": {"type": "integer"},
+                "file_size": {"type": "integer"},
+                "height": {"type": "integer"}
+              }
+            },
+            "mime_type": {"type": "string"},
+            "file_name": {"type": "string"},
+            "file_id": {"type": "string"},
+            "width": {"type": "integer"},
+            "file_size": {"type": "integer"},
+            "height": {"type": "integer"}
+          }
+        },
+        "pinned_message": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "successful_payment": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "forward_date": {"type": "integer"},
+        "video_note": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "forward_from": {
+          "additionalProperties": true,
+          "type": "object",
+          "required": ["first_name"],
+          "properties": {
+            "language_code": {"type": "string"},
+            "supports_inline_queries": {"type": "boolean"},
+            "last_name": {"type": "string"},
+            "first_name": {"type": "string"},
+            "can_join_groups": {"type": "boolean"},
+            "can_read_all_group_messages": {"type": "boolean"},
+            "username": {"type": "string"}
+          }
+        },
+        "proximity_alert_triggered": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "venue": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "game": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "document": {
+          "additionalProperties": true,
+          "type": "object",
+          "required": [
+            "file_id",
+            "file_unique_id"
+          ],
+          "properties": {
+            "file_unique_id": {"type": "string"},
+            "thumb": {
+              "additionalProperties": true,
+              "type": "object",
+              "required": [
+                "file_id",
+                "file_unique_id",
+                "width",
+                "height"
+              ],
+              "properties": {
+                "file_unique_id": {"type": "string"},
+                "file_id": {"type": "string"},
+                "width": {"type": "integer"},
+                "file_size": {"type": "integer"},
+                "height": {"type": "integer"}
+              }
+            },
+            "mime_type": {"type": "string"},
+            "file_name": {"type": "string"},
+            "file_id": {"type": "string"},
+            "file_size": {"type": "integer"}
+          }
+        },
+        "new_chat_title": {"type": "string"},
+        "new_chat_photo": {
+          "type": "array",
+          "items": {"$ref": "#/definitions/items_1"}
+        },
+        "video": {
+          "additionalProperties": true,
+          "type": "object",
+          "required": [
+            "file_id",
+            "duration",
+            "file_unique_id",
+            "width",
+            "height"
+          ],
+          "properties": {
+            "duration": {"type": "integer"},
+            "file_unique_id": {"type": "string"},
+            "thumb": {
+              "additionalProperties": true,
+              "type": "object",
+              "required": [
+                "file_id",
+                "file_unique_id",
+                "width",
+                "height"
+              ],
+              "properties": {
+                "file_unique_id": {"type": "string"},
+                "file_id": {"type": "string"},
+                "width": {"type": "integer"},
+                "file_size": {"type": "integer"},
+                "height": {"type": "integer"}
+              }
+            },
+            "mime_type": {"type": "string"},
+            "file_name": {"type": "string"},
+            "file_id": {"type": "string"},
+            "width": {"type": "integer"},
+            "file_size": {"type": "integer"},
+            "height": {"type": "integer"}
+          }
+        },
+        "migrate_from_chat_id": {"type": "integer"},
+        "via_bot": {
+          "additionalProperties": true,
+          "type": "object",
+          "required": ["first_name"],
+          "properties": {
+            "language_code": {"type": "string"},
+            "supports_inline_queries": {"type": "boolean"},
+            "last_name": {"type": "string"},
+            "first_name": {"type": "string"},
+            "can_join_groups": {"type": "boolean"},
+            "can_read_all_group_messages": {"type": "boolean"},
+            "username": {"type": "string"}
+          }
+        },
+        "forward_from_message_id": {"type": "integer"},
+        "audio": {
+          "additionalProperties": true,
+          "type": "object",
+          "required": [
+            "file_id",
+            "duration",
+            "file_unique_id"
+          ],
+          "properties": {
+            "duration": {"type": "integer"},
+            "performer": {"type": "string"},
+            "file_unique_id": {"type": "string"},
+            "mime_type": {"type": "string"},
+            "thumb": {
+              "additionalProperties": true,
+              "type": "object",
+              "required": [
+                "file_id",
+                "file_unique_id",
+                "width",
+                "height"
+              ],
+              "properties": {
+                "file_unique_id": {"type": "string"},
+                "file_id": {"type": "string"},
+                "width": {"type": "integer"},
+                "file_size": {"type": "integer"},
+                "height": {"type": "integer"}
+              }
+            },
+            "file_name": {"type": "string"},
+            "file_id": {"type": "string"},
+            "title": {"type": "string"},
+            "file_size": {"type": "integer"}
+          }
+        },
+        "caption_entities": {"type": "array"},
+        "reply_markup": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "passport_data": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "author_signature": {"type": "string"},
+        "sticker": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "photo": {
+          "type": "array",
+          "items": {"$ref": "#/definitions/items_1"}
+        },
+        "message_id": {"type": "integer"},
+        "channel_chat_created": {"type": "boolean"},
+        "media_group_id": {"type": "string"},
+        "entities": {"type": "array"},
+        "chat": {
+          "additionalProperties": true,
+          "type": "object",
+          "required": [
+            "id",
+            "type"
+          ],
+          "properties": {
+            "can_set_sticker_set": {"type": "boolean"},
+            "slow_mode_delay": {"type": "integer"},
+            "last_name": {"type": "string"},
+            "photo": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "bio": {"type": "string"},
+            "description": {"type": "string"},
+            "type": {"type": "string"},
+            "title": {"type": "string"},
+            "invite_link": {"type": "string"},
+            "sticker_set_name": {"type": "string"},
+            "pinned_message": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "linked_chat_id": {"type": "integer"},
+            "permissions": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "location": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "id": {"type": "integer"},
+            "first_name": {"type": "string"},
+            "username": {"type": "string"}
+          }
+        },
+        "new_chat_members": {"type": "array"},
+        "sender_chat": {
+          "additionalProperties": true,
+          "type": "object",
+          "required": [
+            "id",
+            "type"
+          ],
+          "properties": {
+            "can_set_sticker_set": {"type": "boolean"},
+            "slow_mode_delay": {"type": "integer"},
+            "last_name": {"type": "string"},
+            "photo": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "bio": {"type": "string"},
+            "description": {"type": "string"},
+            "type": {"type": "string"},
+            "title": {"type": "string"},
+            "invite_link": {"type": "string"},
+            "sticker_set_name": {"type": "string"},
+            "pinned_message": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "linked_chat_id": {"type": "integer"},
+            "permissions": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "location": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "id": {"type": "integer"},
+            "first_name": {"type": "string"},
+            "username": {"type": "string"}
+          }
+        },
+        "location": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "invoice": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "edit_date": {"type": "integer"}
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$ref": "#/definitions/BatchModifyMessagesRequest",
+  "definitions": {"BatchModifyMessagesRequest": {
+    "additionalProperties": true,
+    "type": "object",
+    "properties": {
+      "addLabelIds": {
+        "type": "array",
+        "items": {"type": "string"}
+      },
+      "removeLabelIds": {
+        "type": "array",
+        "items": {"type": "string"}
+      },
+      "ids": {
+        "type": "array",
+        "items": {"type": "string"}
+      }
+    }
+  }}
+}

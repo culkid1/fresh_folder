@@ -1,0 +1,3090 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension-documentation>
+    <configs>
+        <config name="config">
+            <description><![CDATA[]]></description>
+            <parameters>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="name">
+                    <description><![CDATA[The identifier of this element used to reference it in other components]]></description>
+                </parameter>
+                <parameter name="expirationPolicy">
+                    <description><![CDATA[Configures the minimum amount of time that a dynamic configuration instance can remain idle before the runtime considers it eligible for expiration. This does not mean that the platform will expire the instance at the exact moment that it becomes eligible. The runtime will actually purge the instances when it sees it fit.]]></description>
+                </parameter>
+            </parameters>
+        </config>
+    </configs>
+    <connections>
+        <connection name="oauth2c">
+            <description><![CDATA[]]></description>
+            <parameters>
+                <parameter name="defaultHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="defaultQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="connectionTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="connectionTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="usePersistentConnections">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="maxConnections">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="connectionIdleTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="connectionIdleTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="proxyConfig">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamResponse">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseBufferSize">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="accessType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="baseUri">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="protocol">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="tlsContext">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="reconnection">
+                    <description><![CDATA[When the application is deployed, a connectivity test is performed on all connectors. If set to true, deployment will fail if the test doesn't pass after exhausting the associated reconnection strategy]]></description>
+                </parameter>
+                <parameter name="consumerKey">
+                    <description><![CDATA[The OAuth consumerKey as registered with the service provider]]></description>
+                </parameter>
+                <parameter name="consumerSecret">
+                    <description><![CDATA[The OAuth consumerSecret as registered with the service provider]]></description>
+                </parameter>
+                <parameter name="authorizationUrl">
+                    <description><![CDATA[The service provider's authorization endpoint URL]]></description>
+                </parameter>
+                <parameter name="accessTokenUrl">
+                    <description><![CDATA[The service provider's accessToken endpoint URL]]></description>
+                </parameter>
+                <parameter name="scopes">
+                    <description><![CDATA[The OAuth scopes to be requested during the dance. If not provided, it will default to those in the annotation]]></description>
+                </parameter>
+                <parameter name="resourceOwnerId">
+                    <description><![CDATA[The resourceOwnerId which each component should use if it doesn't reference otherwise.]]></description>
+                </parameter>
+                <parameter name="before">
+                    <description><![CDATA[The name of a flow to be executed right before starting the OAuth dance]]></description>
+                </parameter>
+                <parameter name="after">
+                    <description><![CDATA[The name of a flow to be executed right after an accessToken has been received]]></description>
+                </parameter>
+                <parameter name="listenerConfig">
+                    <description><![CDATA[A reference to a <http:listener-config /> to be used in order to create the listener that will catch the access token callback endpoint.]]></description>
+                </parameter>
+                <parameter name="callbackPath">
+                    <description><![CDATA[The path of the access token callback endpoint]]></description>
+                </parameter>
+                <parameter name="authorizePath">
+                    <description><![CDATA[The path of the local http endpoint which triggers the OAuth dance]]></description>
+                </parameter>
+                <parameter name="externalCallbackUrl">
+                    <description><![CDATA[If the callback endpoint is behind a proxy or should be accessed through a non direct URL, use this parameter to tell the OAuth provider the URL it should use to access the callback]]></description>
+                </parameter>
+                <parameter name="objectStore">
+                    <description><![CDATA[A reference to the object store that should be used to store each resource owner id's data. If not specified, runtime will automatically provision the default one.]]></description>
+                </parameter>
+            </parameters>
+        </connection>
+    </connections>
+    <extension name="Gmail Connector">
+        <description><![CDATA[]]></description>
+        <parameters/>
+    </extension>
+    <operations>
+        <operation name="createDraft">
+            <description><![CDATA[Creates a new draft with the `DRAFT` label. This operation makes an HTTP POST request to the /gmail/v1/users/{userId}/drafts endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[The user's email address. The special value `me` can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="createDraftBody">
+                    <description><![CDATA[the content to use]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailusersdraftsdelete">
+            <description><![CDATA[Immediately and permanently deletes the specified draft. Does not simply trash it. This operation makes an HTTP DELETE request to the /gmail/v1/users/{userId}/drafts/{id} endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[The user's email address. The special value `me` can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="idUriParam">
+                    <description><![CDATA[The ID of the draft to delete.]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailusersdraftsget">
+            <description><![CDATA[Gets the specified draft. This operation makes an HTTP GET request to the /gmail/v1/users/{userId}/drafts/{id} endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[The user's email address. The special value `me` can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="idUriParam">
+                    <description><![CDATA[The ID of the draft to retrieve.]]></description>
+                </parameter>
+                <parameter name="formatQueryParam">
+                    <description><![CDATA[The format to return the draft in.]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailusersdraftslist">
+            <description><![CDATA[Lists the drafts in the user's mailbox. This operation makes an HTTP GET request to the /gmail/v1/users/{userId}/drafts endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[The user's email address. The special value `me` can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="maxResultsQueryParam">
+                    <description><![CDATA[Maximum number of drafts to return.]]></description>
+                </parameter>
+                <parameter name="pageTokenQueryParam">
+                    <description><![CDATA[Page token to retrieve a specific page of results in the list.]]></description>
+                </parameter>
+                <parameter name="qQueryParam">
+                    <description><![CDATA[Only return draft messages matching the specified query. Supports the same query format as the Gmail search box. For example, `"from:someuser@example.com rfc822msgid: is:unread"`.]]></description>
+                </parameter>
+                <parameter name="includeSpamTrashQueryParam">
+                    <description><![CDATA[Include drafts from `SPAM` and `TRASH` in the results.]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailusersdraftssend">
+            <description><![CDATA[Sends the specified, existing draft to the recipients in the `To`, `Cc`, and `Bcc` headers. This operation makes an HTTP POST request to the /gmail/v1/users/{userId}/drafts/send endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[The user's email address. The special value `me` can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="gmailusersdraftssendBody">
+                    <description><![CDATA[the content to use]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailusersdraftsupdate">
+            <description><![CDATA[Replaces a draft's content. This operation makes an HTTP PUT request to the /gmail/v1/users/{userId}/drafts/{id} endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[The user's email address. The special value `me` can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="idUriParam">
+                    <description><![CDATA[The ID of the draft to update.]]></description>
+                </parameter>
+                <parameter name="gmailusersdraftsupdateBody">
+                    <description><![CDATA[the content to use]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailusersgetProfile">
+            <description><![CDATA[Gets the current user's Gmail profile. This operation makes an HTTP GET request to the /gmail/v1/users/{userId}/profile endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[The user's email address. The special value `me` can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailusershistorylist">
+            <description><![CDATA[Lists the history of all changes to the given mailbox. History results are returned in chronological order (increasing `historyId`). This operation makes an HTTP GET request to the /gmail/v1/users/{userId}/history endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[The user's email address. The special value `me` can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="maxResultsQueryParam">
+                    <description><![CDATA[The maximum number of history records to return.]]></description>
+                </parameter>
+                <parameter name="pageTokenQueryParam">
+                    <description><![CDATA[Page token to retrieve a specific page of results in the list.]]></description>
+                </parameter>
+                <parameter name="startHistoryIdQueryParam">
+                    <description><![CDATA[Required. Returns history records after the specified `startHistoryId`. The supplied `startHistoryId` should be obtained from the `historyId` of a message, thread, or previous `list` response. History IDs increase chronologically but are not contiguous with random gaps in between valid IDs. Supplying an invalid or out of date `startHistoryId` typically returns an `HTTP 404` error code. A `historyId` is typically valid for at least a week, but in some rare circumstances may be valid for only a few hours. If you receive an `HTTP 404` error response, your application should perform a full sync. If you receive no `nextPageToken` in the response, there are no updates to retrieve and you can store the returned `historyId` for a future request.]]></description>
+                </parameter>
+                <parameter name="labelIdQueryParam">
+                    <description><![CDATA[Only return messages with a label matching the ID.]]></description>
+                </parameter>
+                <parameter name="historyTypesQueryParams">
+                    <description><![CDATA[History types to be returned by the function]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailuserslabelscreate">
+            <description><![CDATA[Creates a new label. This operation makes an HTTP POST request to the /gmail/v1/users/{userId}/labels endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[The user's email address. The special value `me` can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="gmailuserslabelscreateBody">
+                    <description><![CDATA[the content to use]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailuserslabelsdelete">
+            <description><![CDATA[Immediately and permanently deletes the specified label and removes it from any messages and threads that it is applied to. This operation makes an HTTP DELETE request to the /gmail/v1/users/{userId}/labels/{id} endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[The user's email address. The special value `me` can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="idUriParam">
+                    <description><![CDATA[The ID of the label to delete.]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailuserslabelsget">
+            <description><![CDATA[Gets the specified label. This operation makes an HTTP GET request to the /gmail/v1/users/{userId}/labels/{id} endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[The user's email address. The special value `me` can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="idUriParam">
+                    <description><![CDATA[The ID of the label to retrieve.]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailuserslabelslist">
+            <description><![CDATA[Lists all labels in the user's mailbox. This operation makes an HTTP GET request to the /gmail/v1/users/{userId}/labels endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[The user's email address. The special value `me` can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailuserslabelspatch">
+            <description><![CDATA[Patch the specified label. This operation makes an HTTP PATCH request to the /gmail/v1/users/{userId}/labels/{id} endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[The user's email address. The special value `me` can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="idUriParam">
+                    <description><![CDATA[The ID of the label to update.]]></description>
+                </parameter>
+                <parameter name="gmailuserslabelspatchBody">
+                    <description><![CDATA[the content to use]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailuserslabelsupdate">
+            <description><![CDATA[Updates the specified label. This operation makes an HTTP PUT request to the /gmail/v1/users/{userId}/labels/{id} endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[The user's email address. The special value `me` can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="idUriParam">
+                    <description><![CDATA[The ID of the label to update.]]></description>
+                </parameter>
+                <parameter name="gmailuserslabelsupdateBody">
+                    <description><![CDATA[the content to use]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailusersmessagesattachmentsget">
+            <description><![CDATA[Gets the specified message attachment. This operation makes an HTTP GET request to the /gmail/v1/users/{userId}/messages/{messageId}/attachments/{id} endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[The user's email address. The special value `me` can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="messageIdUriParam">
+                    <description><![CDATA[The ID of the message containing the attachment.]]></description>
+                </parameter>
+                <parameter name="idUriParam">
+                    <description><![CDATA[The ID of the attachment.]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailusersmessagesbatchDelete">
+            <description><![CDATA[Deletes many messages by message ID. Provides no guarantees that messages were not already deleted or even existed at all. This operation makes an HTTP POST request to the /gmail/v1/users/{userId}/messages/batchDelete endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[The user's email address. The special value `me` can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="gmailusersmessagesbatchDeleteBody">
+                    <description><![CDATA[the content to use]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailusersmessagesbatchModify">
+            <description><![CDATA[Modifies the labels on the specified messages. This operation makes an HTTP POST request to the /gmail/v1/users/{userId}/messages/batchModify endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[The user's email address. The special value `me` can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="gmailusersmessagesbatchModifyBody">
+                    <description><![CDATA[the content to use]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailusersmessagesdelete">
+            <description><![CDATA[Immediately and permanently deletes the specified message. This operation cannot be undone. Prefer `messages.trash` instead. This operation makes an HTTP DELETE request to the /gmail/v1/users/{userId}/messages/{id} endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[The user's email address. The special value `me` can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="idUriParam">
+                    <description><![CDATA[The ID of the message to delete.]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailusersmessagesget">
+            <description><![CDATA[Gets the specified message. This operation makes an HTTP GET request to the /gmail/v1/users/{userId}/messages/{id} endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[The user's email address. The special value `me` can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="idUriParam">
+                    <description><![CDATA[The ID of the message to retrieve. This ID is usually retrieved using `messages.list`. The ID is also contained in the result when a message is inserted (`messages.insert`) or imported (`messages.import`).]]></description>
+                </parameter>
+                <parameter name="formatQueryParam">
+                    <description><![CDATA[The format to return the message in.]]></description>
+                </parameter>
+                <parameter name="metadataHeadersQueryParams">
+                    <description><![CDATA[When given and format is `METADATA`, only include headers specified.]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailusersmessagesimport">
+            <description><![CDATA[Imports a message into only this user's mailbox, with standard email delivery scanning and classification similar to receiving via SMTP. Does not send a message. Note: This function doesn't trigger forwarding rules or filters set up by the user. This operation makes an HTTP POST request to the /gmail/v1/users/{userId}/messages/import endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[The user's email address. The special value `me` can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="internalDateSourceQueryParam">
+                    <description><![CDATA[Source for Gmail's internal date of the message.]]></description>
+                </parameter>
+                <parameter name="neverMarkSpamQueryParam">
+                    <description><![CDATA[Ignore the Gmail spam classifier decision and never mark this email as SPAM in the mailbox.]]></description>
+                </parameter>
+                <parameter name="processForCalendarQueryParam">
+                    <description><![CDATA[Process calendar invites in the email and add any extracted meetings to the Google Calendar for this user.]]></description>
+                </parameter>
+                <parameter name="deletedQueryParam">
+                    <description><![CDATA[Mark the email as permanently deleted (not TRASH) and only visible in Google Vault to a Vault administrator. Only used for G Suite accounts.]]></description>
+                </parameter>
+                <parameter name="gmailusersmessagesimportBody">
+                    <description><![CDATA[the content to use]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailusersmessagesinsert">
+            <description><![CDATA[Directly inserts a message into only this user's mailbox similar to `IMAP APPEND`, bypassing most scanning and classification. Does not send a message. This operation makes an HTTP POST request to the /gmail/v1/users/{userId}/messages endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[The user's email address. The special value `me` can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="internalDateSourceQueryParam">
+                    <description><![CDATA[Source for Gmail's internal date of the message.]]></description>
+                </parameter>
+                <parameter name="deletedQueryParam">
+                    <description><![CDATA[Mark the email as permanently deleted (not TRASH) and only visible in Google Vault to a Vault administrator. Only used for G Suite accounts.]]></description>
+                </parameter>
+                <parameter name="gmailusersmessagesinsertBody">
+                    <description><![CDATA[the content to use]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailusersmessageslist">
+            <description><![CDATA[Lists the messages in the user's mailbox. This operation makes an HTTP GET request to the /gmail/v1/users/{userId}/messages endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[The user's email address. The special value `me` can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="labelIdsQueryParams">
+                    <description><![CDATA[Only return messages with labels that match all of the specified label IDs.]]></description>
+                </parameter>
+                <parameter name="maxResultsQueryParam">
+                    <description><![CDATA[Maximum number of messages to return.]]></description>
+                </parameter>
+                <parameter name="pageTokenQueryParam">
+                    <description><![CDATA[Page token to retrieve a specific page of results in the list.]]></description>
+                </parameter>
+                <parameter name="qQueryParam">
+                    <description><![CDATA[Only return messages matching the specified query. Supports the same query format as the Gmail search box. For example, `"from:someuser@example.com rfc822msgid: is:unread"`. Parameter cannot be used when accessing the api using the gmail.metadata scope.]]></description>
+                </parameter>
+                <parameter name="includeSpamTrashQueryParam">
+                    <description><![CDATA[Include messages from `SPAM` and `TRASH` in the results.]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailusersmessagesmodify">
+            <description><![CDATA[Modifies the labels on the specified message. This operation makes an HTTP POST request to the /gmail/v1/users/{userId}/messages/{id}/modify endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[The user's email address. The special value `me` can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="idUriParam">
+                    <description><![CDATA[The ID of the message to modify.]]></description>
+                </parameter>
+                <parameter name="gmailusersmessagesmodifyBody">
+                    <description><![CDATA[the content to use]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailusersmessagessend">
+            <description><![CDATA[Sends the specified message to the recipients in the `To`, `Cc`, and `Bcc` headers. This operation makes an HTTP POST request to the /gmail/v1/users/{userId}/messages/send endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[The user's email address. The special value `me` can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="gmailusersmessagessendBody">
+                    <description><![CDATA[the content to use]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailusersmessagestrash">
+            <description><![CDATA[Moves the specified message to the trash. This operation makes an HTTP POST request to the /gmail/v1/users/{userId}/messages/{id}/trash endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[The user's email address. The special value `me` can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="idUriParam">
+                    <description><![CDATA[The ID of the message to Trash.]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailusersmessagesuntrash">
+            <description><![CDATA[Removes the specified message from the trash. This operation makes an HTTP POST request to the /gmail/v1/users/{userId}/messages/{id}/untrash endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[The user's email address. The special value `me` can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="idUriParam">
+                    <description><![CDATA[The ID of the message to remove from Trash.]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailuserssettingsdelegatescreate">
+            <description><![CDATA[Adds a delegate with its verification status set directly to `accepted`, without sending any verification email. The delegate user must be a member of the same G Suite organization as the delegator user. Gmail imposes limitations on the number of delegates and delegators each user in a G Suite organization can have. These limits depend on your organization, but in general each user can have up to 25 delegates and up to 10 delegators. Note that a delegate user must be referred to by their primary email address, and not an email alias. Also note that when a new delegate is created, there may be up to a one minute delay before the new delegate is available for use. This method is only available to service account clients that have been delegated domain-wide authority. This operation makes an HTTP POST request to the /gmail/v1/users/{userId}/settings/delegates endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[User's email address. The special value "me" can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="gmailuserssettingsdelegatescreateBody">
+                    <description><![CDATA[the content to use]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailuserssettingsdelegatesdelete">
+            <description><![CDATA[Removes the specified delegate (which can be of any verification status), and revokes any verification that may have been required for using it. Note that a delegate user must be referred to by their primary email address, and not an email alias. This method is only available to service account clients that have been delegated domain-wide authority. This operation makes an HTTP DELETE request to the /gmail/v1/users/{userId}/settings/delegates/{delegateEmail} endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[User's email address. The special value "me" can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="delegateEmailUriParam">
+                    <description><![CDATA[The email address of the user to be removed as a delegate.]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailuserssettingsdelegatesget">
+            <description><![CDATA[Gets the specified delegate. Note that a delegate user must be referred to by their primary email address, and not an email alias. This method is only available to service account clients that have been delegated domain-wide authority. This operation makes an HTTP GET request to the /gmail/v1/users/{userId}/settings/delegates/{delegateEmail} endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[User's email address. The special value "me" can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="delegateEmailUriParam">
+                    <description><![CDATA[The email address of the user whose delegate relationship is to be retrieved.]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailuserssettingsdelegateslist">
+            <description><![CDATA[Lists the delegates for the specified account. This method is only available to service account clients that have been delegated domain-wide authority. This operation makes an HTTP GET request to the /gmail/v1/users/{userId}/settings/delegates endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[User's email address. The special value "me" can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailuserssettingsfilterscreate">
+            <description><![CDATA[Creates a filter. Note: you can only create a maximum of 1,000 filters. This operation makes an HTTP POST request to the /gmail/v1/users/{userId}/settings/filters endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[User's email address. The special value "me" can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="gmailuserssettingsfilterscreateBody">
+                    <description><![CDATA[the content to use]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailuserssettingsfiltersdelete">
+            <description><![CDATA[Deletes a filter. This operation makes an HTTP DELETE request to the /gmail/v1/users/{userId}/settings/filters/{id} endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[User's email address. The special value "me" can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="idUriParam">
+                    <description><![CDATA[The ID of the filter to be deleted.]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailuserssettingsfiltersget">
+            <description><![CDATA[Gets a filter. This operation makes an HTTP GET request to the /gmail/v1/users/{userId}/settings/filters/{id} endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[User's email address. The special value "me" can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="idUriParam">
+                    <description><![CDATA[The ID of the filter to be fetched.]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailuserssettingsfilterslist">
+            <description><![CDATA[Lists the message filters of a Gmail user. This operation makes an HTTP GET request to the /gmail/v1/users/{userId}/settings/filters endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[User's email address. The special value "me" can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailuserssettingsforwardingAddressescreate">
+            <description><![CDATA[Creates a forwarding address. If ownership verification is required, a message will be sent to the recipient and the resource's verification status will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. This method is only available to service account clients that have been delegated domain-wide authority. This operation makes an HTTP POST request to the /gmail/v1/users/{userId}/settings/forwardingAddresses endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[User's email address. The special value "me" can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="gmailuserssettingsforwardingAddressescreateBody">
+                    <description><![CDATA[the content to use]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailuserssettingsforwardingAddressesdelete">
+            <description><![CDATA[Deletes the specified forwarding address and revokes any verification that may have been required. This method is only available to service account clients that have been delegated domain-wide authority. This operation makes an HTTP DELETE request to the /gmail/v1/users/{userId}/settings/forwardingAddresses/{forwardingEmail} endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[User's email address. The special value "me" can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="forwardingEmailUriParam">
+                    <description><![CDATA[The forwarding address to be deleted.]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailuserssettingsforwardingAddressesget">
+            <description><![CDATA[Gets the specified forwarding address. This operation makes an HTTP GET request to the /gmail/v1/users/{userId}/settings/forwardingAddresses/{forwardingEmail} endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[User's email address. The special value "me" can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="forwardingEmailUriParam">
+                    <description><![CDATA[The forwarding address to be retrieved.]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailuserssettingsforwardingAddresseslist">
+            <description><![CDATA[Lists the forwarding addresses for the specified account. This operation makes an HTTP GET request to the /gmail/v1/users/{userId}/settings/forwardingAddresses endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[User's email address. The special value "me" can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailuserssettingsgetAutoForwarding">
+            <description><![CDATA[Gets the auto-forwarding setting for the specified account. This operation makes an HTTP GET request to the /gmail/v1/users/{userId}/settings/autoForwarding endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[User's email address. The special value "me" can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailuserssettingsgetImap">
+            <description><![CDATA[Gets IMAP settings. This operation makes an HTTP GET request to the /gmail/v1/users/{userId}/settings/imap endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[User's email address. The special value "me" can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailuserssettingsgetLanguage">
+            <description><![CDATA[Gets language settings. This operation makes an HTTP GET request to the /gmail/v1/users/{userId}/settings/language endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[User's email address. The special value "me" can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailuserssettingsgetPop">
+            <description><![CDATA[Gets POP settings. This operation makes an HTTP GET request to the /gmail/v1/users/{userId}/settings/pop endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[User's email address. The special value "me" can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailuserssettingsgetVacation">
+            <description><![CDATA[Gets vacation responder settings. This operation makes an HTTP GET request to the /gmail/v1/users/{userId}/settings/vacation endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[User's email address. The special value "me" can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailuserssettingssendAscreate">
+            <description><![CDATA[Creates a custom "from" send-as alias. If an SMTP MSA is specified, Gmail will attempt to connect to the SMTP service to validate the configuration before creating the alias. If ownership verification is required for the alias, a message will be sent to the email address and the resource's verification status will be set to `pending`; otherwise, the resource will be created with verification status set to `accepted`. If a signature is provided, Gmail will sanitize the HTML before saving it with the alias. This method is only available to service account clients that have been delegated domain-wide authority. This operation makes an HTTP POST request to the /gmail/v1/users/{userId}/settings/sendAs endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[User's email address. The special value "me" can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="gmailuserssettingssendAscreateBody">
+                    <description><![CDATA[the content to use]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailuserssettingssendAsdelete">
+            <description><![CDATA[Deletes the specified send-as alias. Revokes any verification that may have been required for using it. This method is only available to service account clients that have been delegated domain-wide authority. This operation makes an HTTP DELETE request to the /gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail} endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[User's email address. The special value "me" can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="sendAsEmailUriParam">
+                    <description><![CDATA[The send-as alias to be deleted.]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailuserssettingssendAsget">
+            <description><![CDATA[Gets the specified send-as alias. Fails with an HTTP 404 error if the specified address is not a member of the collection. This operation makes an HTTP GET request to the /gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail} endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[User's email address. The special value "me" can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="sendAsEmailUriParam">
+                    <description><![CDATA[The send-as alias to be retrieved.]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailuserssettingssendAslist">
+            <description><![CDATA[Lists the send-as aliases for the specified account. The result includes the primary send-as address associated with the account as well as any custom "from" aliases. This operation makes an HTTP GET request to the /gmail/v1/users/{userId}/settings/sendAs endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[User's email address. The special value "me" can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailuserssettingssendAspatch">
+            <description><![CDATA[Patch the specified send-as alias. This operation makes an HTTP PATCH request to the /gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail} endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[User's email address. The special value "me" can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="sendAsEmailUriParam">
+                    <description><![CDATA[The send-as alias to be updated.]]></description>
+                </parameter>
+                <parameter name="gmailuserssettingssendAspatchBody">
+                    <description><![CDATA[the content to use]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailuserssettingssendAssmimeInfodelete">
+            <description><![CDATA[Deletes the specified S/MIME config for the specified send-as alias. This operation makes an HTTP DELETE request to the /gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}/smimeInfo/{id} endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[The user's email address. The special value `me` can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="sendAsEmailUriParam">
+                    <description><![CDATA[The email address that appears in the "From:" header for mail sent using this alias.]]></description>
+                </parameter>
+                <parameter name="idUriParam">
+                    <description><![CDATA[The immutable ID for the SmimeInfo.]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailuserssettingssendAssmimeInfoget">
+            <description><![CDATA[Gets the specified S/MIME config for the specified send-as alias. This operation makes an HTTP GET request to the /gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}/smimeInfo/{id} endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[The user's email address. The special value `me` can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="sendAsEmailUriParam">
+                    <description><![CDATA[The email address that appears in the "From:" header for mail sent using this alias.]]></description>
+                </parameter>
+                <parameter name="idUriParam">
+                    <description><![CDATA[The immutable ID for the SmimeInfo.]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailuserssettingssendAssmimeInfoinsert">
+            <description><![CDATA[Insert (upload) the given S/MIME config for the specified send-as alias. Note that pkcs12 format is required for the key. This operation makes an HTTP POST request to the /gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}/smimeInfo endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[The user's email address. The special value `me` can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="sendAsEmailUriParam">
+                    <description><![CDATA[The email address that appears in the "From:" header for mail sent using this alias.]]></description>
+                </parameter>
+                <parameter name="gmailuserssettingssendAssmimeInfoinsertBody">
+                    <description><![CDATA[the content to use]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailuserssettingssendAssmimeInfolist">
+            <description><![CDATA[Lists S/MIME configs for the specified send-as alias. This operation makes an HTTP GET request to the /gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}/smimeInfo endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[The user's email address. The special value `me` can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="sendAsEmailUriParam">
+                    <description><![CDATA[The email address that appears in the "From:" header for mail sent using this alias.]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailuserssettingssendAssmimeInfosetDefault">
+            <description><![CDATA[Sets the default S/MIME config for the specified send-as alias. This operation makes an HTTP POST request to the /gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}/smimeInfo/{id}/setDefault endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[The user's email address. The special value `me` can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="sendAsEmailUriParam">
+                    <description><![CDATA[The email address that appears in the "From:" header for mail sent using this alias.]]></description>
+                </parameter>
+                <parameter name="idUriParam">
+                    <description><![CDATA[The immutable ID for the SmimeInfo.]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailuserssettingssendAsupdate">
+            <description><![CDATA[Updates a send-as alias. If a signature is provided, Gmail will sanitize the HTML before saving it with the alias. Addresses other than the primary address for the account can only be updated by service account clients that have been delegated domain-wide authority. This operation makes an HTTP PUT request to the /gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail} endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[User's email address. The special value "me" can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="sendAsEmailUriParam">
+                    <description><![CDATA[The send-as alias to be updated.]]></description>
+                </parameter>
+                <parameter name="gmailuserssettingssendAsupdateBody">
+                    <description><![CDATA[the content to use]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailuserssettingssendAsverify">
+            <description><![CDATA[Sends a verification email to the specified send-as alias address. The verification status must be `pending`. This method is only available to service account clients that have been delegated domain-wide authority. This operation makes an HTTP POST request to the /gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}/verify endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[User's email address. The special value "me" can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="sendAsEmailUriParam">
+                    <description><![CDATA[The send-as alias to be verified.]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailuserssettingsupdateAutoForwarding">
+            <description><![CDATA[Updates the auto-forwarding setting for the specified account. A verified forwarding address must be specified when auto-forwarding is enabled. This method is only available to service account clients that have been delegated domain-wide authority. This operation makes an HTTP PUT request to the /gmail/v1/users/{userId}/settings/autoForwarding endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[User's email address. The special value "me" can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="gmailuserssettingsupdateAutoForwardingBody">
+                    <description><![CDATA[the content to use]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailuserssettingsupdateImap">
+            <description><![CDATA[Updates IMAP settings. This operation makes an HTTP PUT request to the /gmail/v1/users/{userId}/settings/imap endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[User's email address. The special value "me" can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="gmailuserssettingsupdateImapBody">
+                    <description><![CDATA[the content to use]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailuserssettingsupdateLanguage">
+            <description><![CDATA[Updates language settings. If successful, the return object contains the `displayLanguage` that was saved for the user, which may differ from the value passed into the request. This is because the requested `displayLanguage` may not be directly supported by Gmail but have a close variant that is, and so the variant may be chosen and saved instead. This operation makes an HTTP PUT request to the /gmail/v1/users/{userId}/settings/language endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[User's email address. The special value "me" can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="gmailuserssettingsupdateLanguageBody">
+                    <description><![CDATA[the content to use]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailuserssettingsupdatePop">
+            <description><![CDATA[Updates POP settings. This operation makes an HTTP PUT request to the /gmail/v1/users/{userId}/settings/pop endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[User's email address. The special value "me" can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="gmailuserssettingsupdatePopBody">
+                    <description><![CDATA[the content to use]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailuserssettingsupdateVacation">
+            <description><![CDATA[Updates vacation responder settings. This operation makes an HTTP PUT request to the /gmail/v1/users/{userId}/settings/vacation endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[User's email address. The special value "me" can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="gmailuserssettingsupdateVacationBody">
+                    <description><![CDATA[the content to use]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailusersstop">
+            <description><![CDATA[Stop receiving push notifications for the given user mailbox. This operation makes an HTTP POST request to the /gmail/v1/users/{userId}/stop endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[The user's email address. The special value `me` can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailusersthreadsdelete">
+            <description><![CDATA[Immediately and permanently deletes the specified thread. This operation cannot be undone. Prefer `threads.trash` instead. This operation makes an HTTP DELETE request to the /gmail/v1/users/{userId}/threads/{id} endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[The user's email address. The special value `me` can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="idUriParam">
+                    <description><![CDATA[ID of the Thread to delete.]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailusersthreadsget">
+            <description><![CDATA[Gets the specified thread. This operation makes an HTTP GET request to the /gmail/v1/users/{userId}/threads/{id} endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[The user's email address. The special value `me` can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="idUriParam">
+                    <description><![CDATA[The ID of the thread to retrieve.]]></description>
+                </parameter>
+                <parameter name="formatQueryParam">
+                    <description><![CDATA[The format to return the messages in.]]></description>
+                </parameter>
+                <parameter name="metadataHeadersQueryParams">
+                    <description><![CDATA[When given and format is METADATA, only include headers specified.]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailusersthreadslist">
+            <description><![CDATA[Lists the threads in the user's mailbox. This operation makes an HTTP GET request to the /gmail/v1/users/{userId}/threads endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[The user's email address. The special value `me` can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="labelIdsQueryParams">
+                    <description><![CDATA[Only return threads with labels that match all of the specified label IDs.]]></description>
+                </parameter>
+                <parameter name="maxResultsQueryParam">
+                    <description><![CDATA[Maximum number of threads to return.]]></description>
+                </parameter>
+                <parameter name="pageTokenQueryParam">
+                    <description><![CDATA[Page token to retrieve a specific page of results in the list.]]></description>
+                </parameter>
+                <parameter name="qQueryParam">
+                    <description><![CDATA[Only return threads matching the specified query. Supports the same query format as the Gmail search box. For example, `"from:someuser@example.com rfc822msgid: is:unread"`. Parameter cannot be used when accessing the api using the gmail.metadata scope.]]></description>
+                </parameter>
+                <parameter name="includeSpamTrashQueryParam">
+                    <description><![CDATA[Include threads from `SPAM` and `TRASH` in the results.]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailusersthreadsmodify">
+            <description><![CDATA[Modifies the labels applied to the thread. This applies to all messages in the thread. This operation makes an HTTP POST request to the /gmail/v1/users/{userId}/threads/{id}/modify endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[The user's email address. The special value `me` can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="idUriParam">
+                    <description><![CDATA[The ID of the thread to modify.]]></description>
+                </parameter>
+                <parameter name="gmailusersthreadsmodifyBody">
+                    <description><![CDATA[the content to use]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailusersthreadstrash">
+            <description><![CDATA[Moves the specified thread to the trash. This operation makes an HTTP POST request to the /gmail/v1/users/{userId}/threads/{id}/trash endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[The user's email address. The special value `me` can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="idUriParam">
+                    <description><![CDATA[The ID of the thread to Trash.]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailusersthreadsuntrash">
+            <description><![CDATA[Removes the specified thread from the trash. This operation makes an HTTP POST request to the /gmail/v1/users/{userId}/threads/{id}/untrash endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[The user's email address. The special value `me` can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="idUriParam">
+                    <description><![CDATA[The ID of the thread to remove from Trash.]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="gmailuserswatch">
+            <description><![CDATA[Set up or update a push notification watch on the given user mailbox. This operation makes an HTTP POST request to the /gmail/v1/users/{userId}/watch endpoint]]></description>
+            <parameters>
+                <parameter name="userIdUriParam">
+                    <description><![CDATA[The user's email address. The special value `me` can be used to indicate the authenticated user.]]></description>
+                </parameter>
+                <parameter name="gmailuserswatchBody">
+                    <description><![CDATA[the content to use]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="sendEmail">
+            <description><![CDATA[Sends the specified message to the recipients in the To, Cc, and Bcc headers. This operation makes an HTTP POST request to the /gmail/v1/users/{userId}/messages/send endpoint]]></description>
+            <parameters>
+                <parameter name="to">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="subject">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="body">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="attachment">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="customQueryParams">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="customHeaders">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeout">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="responseTimeoutUnit">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="streamingType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="unauthorize">
+            <description><![CDATA[Deletes all the access token information of a given resource owner id so that it's impossible to execute any operation for that user without doing the authorization dance again]]></description>
+            <parameters>
+                <parameter name="resourceOwnerId">
+                    <description><![CDATA[The id of the resource owner which access should be invalidated]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+    </operations>
+    <sources>
+        <source name="on-new-email-listener">
+            <description><![CDATA[]]></description>
+            <parameters>
+                <parameter name="after">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="query">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="schedulingStrategy">
+                    <description><![CDATA[Configures the scheduler that triggers the polling]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="redeliveryPolicy">
+                    <description><![CDATA[Defines a policy for processing the redelivery of the same message]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </source>
+    </sources>
+    <types>
+        <type name="com.mulesoft.connectivity.rest.commons.api.operation.HttpResponseAttributes">
+            <description><![CDATA[]]></description>
+            <parameters>
+                <parameter name="statusCode">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="headers">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="reasonPhrase">
+                    <description><![CDATA[]]></description>
+                </parameter>
+            </parameters>
+        </type>
+        <type name="com.mulesoft.connectivity.rest.commons.api.proxy.HttpProxyConfig">
+            <description><![CDATA[]]></description>
+            <parameters>
+                <parameter name="host">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="port">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="username">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="password">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="nonProxyHosts">
+                    <description><![CDATA[]]></description>
+                </parameter>
+            </parameters>
+        </type>
+        <type name="com.mulesoft.connectivity.rest.commons.api.request.QueryParam">
+            <description><![CDATA[]]></description>
+            <parameters>
+                <parameter name="key">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="value">
+                    <description><![CDATA[]]></description>
+                </parameter>
+            </parameters>
+        </type>
+        <type name="com.mulesoft.connectivity.rest.commons.api.request.RequestHeader">
+            <description><![CDATA[]]></description>
+            <parameters>
+                <parameter name="key">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="value">
+                    <description><![CDATA[]]></description>
+                </parameter>
+            </parameters>
+        </type>
+    </types>
+</extension-documentation>

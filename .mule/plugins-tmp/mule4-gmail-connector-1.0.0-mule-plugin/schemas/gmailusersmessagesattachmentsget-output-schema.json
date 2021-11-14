@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$ref": "#/definitions/MessagePartBody",
+  "definitions": {"MessagePartBody": {
+    "additionalProperties": true,
+    "type": "object",
+    "properties": {
+      "data": {
+        "format": "byte",
+        "type": "string"
+      },
+      "size": {
+        "maximum": 2147483647,
+        "type": "integer",
+        "minimum": -2147483648
+      },
+      "attachmentId": {"type": "string"}
+    }
+  }}
+}

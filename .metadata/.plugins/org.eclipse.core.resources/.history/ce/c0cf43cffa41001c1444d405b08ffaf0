@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="846dec24-bbc7-40db-97c3-2f0ccd475ae8" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="youtubeFlow" doc:id="f262bdc3-2e99-4760-ab9e-27be1bee4555" >
+		<http:listener doc:name="Listener" doc:id="c7d293d5-17f9-4579-a798-c31363b06021" config-ref="HTTP_Listener_config" path="/youtube"/>
+		<logger level="INFO" doc:name="Logger" doc:id="55e1b146-0cda-488d-8d62-f28a44bd18d5" message="${youtube.apikey}"/>
+	</flow>
+</mule>

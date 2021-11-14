@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns:crypto="http://www.mulesoft.org/schema/mule/crypto"
+	xmlns:servicenow="http://www.mulesoft.org/schema/mule/servicenow" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/servicenow http://www.mulesoft.org/schema/mule/servicenow/current/mule-servicenow.xsd
+http://www.mulesoft.org/schema/mule/crypto http://www.mulesoft.org/schema/mule/crypto/current/mule-crypto.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="4c9c8f85-f321-4567-aafa-6456cefa4832" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="cryptoFlow1" doc:id="9eb47ab8-70f2-4412-8901-3aa893433738" >
+		<http:listener doc:name="Listener" doc:id="52c583e9-9a5a-4797-a3c6-10e5506b2582" config-ref="HTTP_Listener_config" path="/encrypt"/>
+		<crypto:jce-encrypt-pbe doc:name="Jce encrypt pbe" doc:id="5f41b610-c429-45c8-a07b-b881b1feccba" password="mulesoft"/>
+		<logger level="INFO" doc:name="Logger" doc:id="c912e8e8-bfdb-4bed-982a-7a8e53ded66b" message="encrypted :: #[payload]"/>
+		<ee:transform doc:name="Transform Message" doc:id="83df1c0e-9a75-4cd6-b236-870b0877bbc9" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+import dw::Crypto
+import toBase64 from dw::core::Binaries
+output application/json
+---
+toBase64(payload)]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+	<flow name="cryptoFlow" doc:id="6d78bed2-187f-4b3b-9540-a3d426f6714f" >
+		<http:listener doc:name="Listener" doc:id="11439cd4-7d73-4506-98df-26b5fd7eba50" config-ref="HTTP_Listener_config" path="/decrypt"/>
+		<ee:transform doc:name="Transform Message" doc:id="96151a79-db4a-406a-9d99-855c4b6988fd">
+			<ee:message>
+				<ee:set-payload><![CDATA[%dw 2.0
+import dw::Crypto
+import fromBase64 from dw::core::Binaries
+output application/octet-stream
+---
+fromBase64(payload)]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<logger level="INFO" doc:name="Logger" doc:id="409c358a-1a67-47d9-931f-99984d5cb59d" message="before decrypted message: #[payload]" />
+		<crypto:jce-decrypt-pbe doc:name="Jce decrypt pbe" doc:id="b1336c41-cf83-44ca-aad4-cf3a2397eabf" password="mulesoft"/>
+	</flow>
+</mule>

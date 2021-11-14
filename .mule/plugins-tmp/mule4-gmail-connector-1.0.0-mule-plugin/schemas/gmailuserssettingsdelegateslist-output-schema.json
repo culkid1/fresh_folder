@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$ref": "#/definitions/ListDelegatesResponse",
+  "definitions": {
+    "Delegate": {
+      "additionalProperties": true,
+      "type": "object",
+      "properties": {
+        "verificationStatus": {
+          "type": "string",
+          "enum": [
+            "verificationStatusUnspecified",
+            "accepted",
+            "pending",
+            "rejected",
+            "expired"
+          ]
+        },
+        "delegateEmail": {"type": "string"}
+      }
+    },
+    "ListDelegatesResponse": {
+      "additionalProperties": true,
+      "type": "object",
+      "properties": {"delegates": {
+        "type": "array",
+        "items": {"$ref": "#/definitions/Delegate"}
+      }}
+    }
+  }
+}

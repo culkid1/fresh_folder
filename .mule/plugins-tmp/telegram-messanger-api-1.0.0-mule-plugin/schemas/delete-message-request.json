@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$ref": "#/definitions/deleteMessageRequest",
+  "definitions": {"deleteMessageRequest": {
+    "additionalProperties": true,
+    "type": "object",
+    "required": [
+      "chat_id",
+      "message_id"
+    ],
+    "properties": {
+      "message_id": {"anyOf": [
+        {"type": "integer"},
+        {"type": "string"}
+      ]},
+      "chat_id": {"anyOf": [
+        {"type": "integer"},
+        {"type": "string"}
+      ]}
+    }
+  }}
+}

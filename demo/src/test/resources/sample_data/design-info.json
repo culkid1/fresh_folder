@@ -1,0 +1,18 @@
+{
+  "sampleData": {
+    "9db4a4cc-6e7a-4a85-83f2-11fc86ae4698": {
+      "payload": "sample_data/defaultstringtype.dwl"
+    },
+    "752c1499-7327-4f99-9c51-e75e186d47c6": {
+      "payload": "sample_data/java_1.dwl",
+      "vars-myvar": "sample_data/Serializable_1.dwl"
+    },
+    "d377ddc7-199f-4b87-8691-7bfe3b941f86": {
+      "payload": "sample_data/defaultstringtype_1.dwl"
+    },
+    "12aefa5f-173f-4bf6-b97e-cd4e0adf9f47": {
+      "vars-osChatId": "sample_data/serializable.dwl",
+      "payload": "sample_data/java.dwl"
+    }
+  }
+}

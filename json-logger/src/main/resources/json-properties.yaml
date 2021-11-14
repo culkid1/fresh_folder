@@ -1,0 +1,6 @@
+mule:
+  env: dev
+http:
+  port: 8081
+  host: localhost
+  

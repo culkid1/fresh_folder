@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$ref": "#/definitions/WatchRequest",
+  "definitions": {"WatchRequest": {
+    "additionalProperties": true,
+    "type": "object",
+    "properties": {
+      "labelIds": {
+        "type": "array",
+        "items": {"type": "string"}
+      },
+      "labelFilterAction": {
+        "type": "string",
+        "enum": [
+          "include",
+          "exclude"
+        ]
+      },
+      "topicName": {"type": "string"}
+    }
+  }}
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$ref": "#/definitions/ForwardingAddress",
+  "definitions": {"ForwardingAddress": {
+    "additionalProperties": true,
+    "type": "object",
+    "properties": {
+      "verificationStatus": {
+        "type": "string",
+        "enum": [
+          "verificationStatusUnspecified",
+          "accepted",
+          "pending"
+        ]
+      },
+      "forwardingEmail": {"type": "string"}
+    }
+  }}
+}

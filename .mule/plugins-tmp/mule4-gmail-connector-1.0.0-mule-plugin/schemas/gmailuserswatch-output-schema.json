@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$ref": "#/definitions/WatchResponse",
+  "definitions": {"WatchResponse": {
+    "additionalProperties": true,
+    "type": "object",
+    "properties": {
+      "historyId": {
+        "format": "uint64",
+        "type": "string"
+      },
+      "expiration": {
+        "format": "int64",
+        "type": "string"
+      }
+    }
+  }}
+}

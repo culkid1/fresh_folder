@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$ref": "#/definitions/sendAudioMessageRequest",
+  "definitions": {"sendAudioMessageRequest": {
+    "additionalProperties": true,
+    "type": "object",
+    "required": [
+      "chat_id",
+      "audio"
+    ],
+    "properties": {
+      "duration": {"type": "integer"},
+      "allow_sending_without_reply": {"type": "boolean"},
+      "performer": {"type": "string"},
+      "disable_notification": {"type": "boolean"},
+      "thumb": {"type": "string"},
+      "parse_mode": {"type": "string"},
+      "caption": {
+        "minLength": 0,
+        "type": "string",
+        "maxLength": 1024
+      },
+      "audio": {"type": "string"},
+      "caption_entities": {
+        "type": "array",
+        "items": {
+          "additionalProperties": true,
+          "type": "object"
+        }
+      },
+      "reply_to_message_id": {"type": "integer"},
+      "title": {"type": "string"},
+      "chat_id": {"anyOf": [
+        {"type": "integer"},
+        {"type": "string"}
+      ]}
+    }
+  }}
+}

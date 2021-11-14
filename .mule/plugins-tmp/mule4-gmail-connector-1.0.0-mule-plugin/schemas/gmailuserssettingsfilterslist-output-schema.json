@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$ref": "#/definitions/ListFiltersResponse",
+  "definitions": {
+    "ListFiltersResponse": {
+      "additionalProperties": true,
+      "type": "object",
+      "properties": {"filter": {
+        "type": "array",
+        "items": {"$ref": "#/definitions/Filter"}
+      }}
+    },
+    "Filter": {
+      "additionalProperties": true,
+      "type": "object",
+      "properties": {
+        "criteria": {"$ref": "#/definitions/FilterCriteria"},
+        "action": {"$ref": "#/definitions/FilterAction"},
+        "id": {"type": "string"}
+      }
+    },
+    "FilterCriteria": {
+      "additionalProperties": true,
+      "type": "object",
+      "properties": {
+        "hasAttachment": {"type": "boolean"},
+        "excludeChats": {"type": "boolean"},
+        "size": {
+          "maximum": 2147483647,
+          "type": "integer",
+          "minimum": -2147483648
+        },
+        "sizeComparison": {
+          "type": "string",
+          "enum": [
+            "unspecified",
+            "smaller",
+            "larger"
+          ]
+        },
+        "subject": {"type": "string"},
+        "query": {"type": "string"},
+        "from": {"type": "string"},
+        "to": {"type": "string"},
+        "negatedQuery": {"type": "string"}
+      }
+    },
+    "FilterAction": {
+      "additionalProperties": true,
+      "type": "object",
+      "properties": {
+        "addLabelIds": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "forward": {"type": "string"},
+        "removeLabelIds": {
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      }
+    }
+  }
+}

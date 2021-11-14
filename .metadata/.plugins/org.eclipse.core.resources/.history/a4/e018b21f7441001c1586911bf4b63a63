@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:munit="http://www.mulesoft.org/schema/mule/munit" xmlns:munit-tools="http://www.mulesoft.org/schema/mule/munit-tools"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xsi:schemaLocation="
+		http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+		http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
+		http://www.mulesoft.org/schema/mule/munit-tools  http://www.mulesoft.org/schema/mule/munit-tools/current/mule-munit-tools.xsd">
+	<munit:config name="multiple_integrations-test-suite.xml" />
+	<munit:test name="multiple_integrations-test-suite-multiple_integrationsFlowTest" doc:id="3306d2da-d95d-4493-a63b-14010ee54723" description="Test">
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to multiple_integrationsFlow" doc:id="bfd10950-557b-4e4d-9099-417ff14e081c" name="multiple_integrationsFlow"/>
+		</munit:execution>
+	</munit:test>
+
+
+</mule>

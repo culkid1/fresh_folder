@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$ref": "#/definitions/VacationSettings",
+  "definitions": {"VacationSettings": {
+    "additionalProperties": true,
+    "type": "object",
+    "properties": {
+      "responseBodyPlainText": {"type": "string"},
+      "responseSubject": {"type": "string"},
+      "enableAutoReply": {"type": "boolean"},
+      "responseBodyHtml": {"type": "string"},
+      "restrictToContacts": {"type": "boolean"},
+      "startTime": {
+        "format": "int64",
+        "type": "string"
+      },
+      "endTime": {
+        "format": "int64",
+        "type": "string"
+      },
+      "restrictToDomain": {"type": "boolean"}
+    }
+  }}
+}

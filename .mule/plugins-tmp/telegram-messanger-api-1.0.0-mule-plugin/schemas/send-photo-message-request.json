@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$ref": "#/definitions/sendPhotoMessageRequest",
+  "definitions": {"sendPhotoMessageRequest": {
+    "additionalProperties": true,
+    "type": "object",
+    "required": [
+      "chat_id",
+      "photo"
+    ],
+    "properties": {
+      "allow_sending_without_reply": {"type": "boolean"},
+      "disable_notification": {"type": "boolean"},
+      "parse_mode": {"type": "string"},
+      "photo": {"type": "string"},
+      "caption": {"type": "string"},
+      "caption_entities": {
+        "type": "array",
+        "items": {
+          "additionalProperties": true,
+          "type": "object"
+        }
+      },
+      "reply_to_message_id": {"type": "integer"},
+      "chat_id": {"anyOf": [
+        {"type": "integer"},
+        {"type": "string"}
+      ]}
+    }
+  }}
+}

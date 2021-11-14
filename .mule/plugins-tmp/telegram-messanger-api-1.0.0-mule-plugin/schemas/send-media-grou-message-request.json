@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$ref": "#/definitions/sendMediaGrouMessageRequest",
+  "definitions": {"sendMediaGrouMessageRequest": {
+    "additionalProperties": true,
+    "type": "object",
+    "required": [
+      "chat_id",
+      "media"
+    ],
+    "properties": {
+      "allow_sending_without_reply": {"type": "boolean"},
+      "disable_notification": {"type": "boolean"},
+      "media": {
+        "type": "array",
+        "items": {
+          "additionalProperties": true,
+          "type": "object"
+        }
+      },
+      "reply_to_message_id": {"type": "integer"},
+      "chat_id": {"anyOf": [
+        {"type": "integer"},
+        {"type": "string"}
+      ]}
+    }
+  }}
+}

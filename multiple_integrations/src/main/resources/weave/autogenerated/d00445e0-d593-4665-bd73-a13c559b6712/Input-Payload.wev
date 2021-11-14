@@ -1,0 +1,4 @@
+%dw 2.0
+
+type auto_d00445e0_d593_4665_bd73_a13c559b6712_Input_Payload = Array<{|  AccountName: String,   AccountNumber: String,   Phone: String,   BillingStreet: String,   BillingCity: String,   BillingCountry: String|}>
+

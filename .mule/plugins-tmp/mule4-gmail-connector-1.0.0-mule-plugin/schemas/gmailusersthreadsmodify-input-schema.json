@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$ref": "#/definitions/ModifyThreadRequest",
+  "definitions": {"ModifyThreadRequest": {
+    "additionalProperties": true,
+    "type": "object",
+    "properties": {
+      "addLabelIds": {
+        "type": "array",
+        "items": {"type": "string"}
+      },
+      "removeLabelIds": {
+        "type": "array",
+        "items": {"type": "string"}
+      }
+    }
+  }}
+}

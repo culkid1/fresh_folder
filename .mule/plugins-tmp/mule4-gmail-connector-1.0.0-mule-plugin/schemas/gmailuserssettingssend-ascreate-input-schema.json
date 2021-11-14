@@ -1,0 +1,51 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$ref": "#/definitions/SendAs",
+  "definitions": {
+    "SmtpMsa": {
+      "additionalProperties": true,
+      "type": "object",
+      "properties": {
+        "password": {"type": "string"},
+        "port": {
+          "maximum": 2147483647,
+          "type": "integer",
+          "minimum": -2147483648
+        },
+        "host": {"type": "string"},
+        "securityMode": {
+          "type": "string",
+          "enum": [
+            "securityModeUnspecified",
+            "none",
+            "ssl",
+            "starttls"
+          ]
+        },
+        "username": {"type": "string"}
+      }
+    },
+    "SendAs": {
+      "additionalProperties": true,
+      "type": "object",
+      "properties": {
+        "isDefault": {"type": "boolean"},
+        "signature": {"type": "string"},
+        "verificationStatus": {
+          "type": "string",
+          "enum": [
+            "verificationStatusUnspecified",
+            "accepted",
+            "pending"
+          ]
+        },
+        "displayName": {"type": "string"},
+        "isPrimary": {"type": "boolean"},
+        "sendAsEmail": {"type": "string"},
+        "smtpMsa": {"$ref": "#/definitions/SmtpMsa"},
+        "replyToAddress": {"type": "string"},
+        "treatAsAlias": {"type": "boolean"}
+      }
+    }
+  }
+}

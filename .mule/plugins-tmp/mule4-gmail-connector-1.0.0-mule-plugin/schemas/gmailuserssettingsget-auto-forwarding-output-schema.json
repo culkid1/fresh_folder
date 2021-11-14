@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$ref": "#/definitions/AutoForwarding",
+  "definitions": {"AutoForwarding": {
+    "additionalProperties": true,
+    "type": "object",
+    "properties": {
+      "disposition": {
+        "type": "string",
+        "enum": [
+          "dispositionUnspecified",
+          "leaveInInbox",
+          "archive",
+          "trash",
+          "markRead"
+        ]
+      },
+      "emailAddress": {"type": "string"},
+      "enabled": {"type": "boolean"}
+    }
+  }}
+}

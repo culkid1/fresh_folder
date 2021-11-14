@@ -1,0 +1,34 @@
+{
+  "extensionModelLoaderDescriptor": {
+    "id": "java",
+    "attributes": {
+      "type": "com.mulesoft.connectors.internal.extension.GmailConnector",
+      "version": "1.0.0"
+    }
+  },
+  "license": {
+    "allowsEvaluation": true
+  },
+  "name": "Gmail Connector",
+  "requiredProduct": "MULE_EE",
+  "classLoaderModelLoaderDescriptor": {
+    "id": "mule",
+    "attributes": {
+      "privilegedExportedPackages": [],
+      "privilegedArtifactIds": [],
+      "exportedPackages": [
+        "com.mulesoft.connectors.api.metadata",
+        "com.mulesoft.connectivity.rest.commons.api.request",
+        "com.mulesoft.connectivity.rest.commons.api.configuration",
+        "com.mulesoft.connectivity.rest.commons.api.proxy",
+        "com.mulesoft.connectivity.rest.commons.api.operation"
+      ],
+      "exportedResources": []
+    }
+  },
+  "bundleDescriptorLoader": {
+    "id": "mule",
+    "attributes": {}
+  },
+  "minMuleVersion": "4.3.0"
+}

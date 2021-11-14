@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$ref": "#/definitions/sendDocumentMessageRequest",
+  "definitions": {"sendDocumentMessageRequest": {
+    "additionalProperties": true,
+    "type": "object",
+    "required": [
+      "chat_id",
+      "document"
+    ],
+    "properties": {
+      "allow_sending_without_reply": {"type": "boolean"},
+      "disable_content_type_detection": {"type": "boolean"},
+      "disable_notification": {"type": "boolean"},
+      "thumb": {"type": "string"},
+      "parse_mode": {"type": "string"},
+      "document": {"type": "string"},
+      "caption": {"type": "string"},
+      "caption_entities": {
+        "type": "array",
+        "items": {
+          "additionalProperties": true,
+          "type": "object"
+        }
+      },
+      "reply_to_message_id": {"type": "integer"},
+      "chat_id": {"anyOf": [
+        {"type": "integer"},
+        {"type": "string"}
+      ]}
+    }
+  }}
+}

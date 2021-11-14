@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:email="http://www.mulesoft.org/schema/mule/email" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/email http://www.mulesoft.org/schema/mule/email/current/mule-email.xsd">
+	<email:smtp-config name="Email_SMTP" doc:name="Email SMTP" doc:id="8b206b0f-47d5-47c7-a204-396db6813b73" >
+		<email:smtp-connection host="smtp.gmail.com" port="587" user="testmule657@gmail.com" password="testmule123" />
+	</email:smtp-config>
+	<flow name="emailFlow" doc:id="ffcb96ed-cfc8-4ab9-ace9-b795c2e3bbf7" >
+		<http:listener doc:name="Listener" doc:id="f50fd4b7-7a43-4b53-b4e7-1e4cccbb4252" config-ref="HTTP_Listener_config" path="/send"/>
+		<email:send doc:name="Send" doc:id="b213f7ea-58ed-4159-a26c-467855c3726b" config-ref="Email_SMTP" fromAddress="testmule657@gmail.com" subject="test mail">
+			<email:to-addresses >
+				<email:to-address value="testmule657@gmail.com" />
+			</email:to-addresses>
+		</email:send>
+	</flow>
+</mule>
